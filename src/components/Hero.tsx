@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-blue-400 rounded-full mix-blend-screen filter blur-[128px] opacity-20" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-12 mt-10 md:mt-0">
-        
+
         {/* Left: Text Content */}
         <div className="flex-1 max-w-3xl text-center md:text-left">
           <motion.div
@@ -43,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[var(--color-text-muted)] mb-10 max-w-2xl leading-relaxed mx-auto md:mx-0"
           >
-            Saya membangun antarmuka web modern yang estetis, cepat, dan responsif. 
+            Saya membangun antarmuka web modern yang estetis, cepat, dan responsif.
             Bersemangat dalam mengeksplorasi teknologi terbaru untuk menciptakan pengalaman digital yang luar biasa.
           </motion.p>
 
@@ -63,7 +63,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Image Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -72,27 +72,27 @@ export default function Hero() {
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-accent)] to-blue-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
-            
+
             {/* Inner Ring */}
             <div className="absolute inset-2 bg-[var(--color-secondary)] rounded-full border border-slate-700/50"></div>
-            
+
             {/* Image Container */}
             <div className="absolute inset-4 overflow-hidden rounded-full border-4 border-[var(--color-primary)] shadow-2xl">
-              <Image 
-                src="/profile.jpg" 
-                alt="Foto Profil Arif Prasojo" 
-                fill 
+              <Image
+                src="/profile.jpg"
+                alt="Foto Profil Arif Prasojo"
+                fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
               />
             </div>
-            
+
             {/* Decoration Dashed Ring */}
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-slate-600 animate-[spin_20s_linear_infinite]"></div>
-            
+
             {/* Floating Badge (Optional touch of expert animation) */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               className="absolute -bottom-4 -right-4 bg-[var(--color-primary)] p-3 rounded-2xl border border-slate-700 shadow-xl"

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const GithubIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -17,8 +18,8 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", "Recharts"],
     github: "#",
     demo: "#",
-    // Placeholder image URL
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    isComingSoon: true,
   },
   {
     title: "AI Summarizer App",
@@ -27,6 +28,7 @@ const projects = [
     github: "https://github.com/ArifPrasojo/summairaze-AI.git",
     demo: "https://summairaze-ai.vercel.app/",
     image: "/img/summary_ai.png",
+    isComingSoon: false,
   },
   {
     title: "Sistem Manajemen Kedai Kopi",
@@ -35,6 +37,7 @@ const projects = [
     github: "#",
     demo: "#",
     image: "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop",
+    isComingSoon: true,
   },
 ];
 
@@ -66,10 +69,20 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-[var(--color-secondary)] rounded-2xl overflow-hidden border border-slate-800 group hover:border-[var(--color-accent)]/50 transition-colors"
+              className="bg-[var(--color-secondary)] rounded-2xl overflow-hidden border border-slate-800 group hover:border-[var(--color-accent)]/50 transition-colors relative"
             >
+              {/* Coming Soon Badge */}
+              {project.isComingSoon && (
+                <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
+                  COMING SOON
+                </div>
+              )}
+
               {/* Image Container */}
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className={cn(
+                "relative h-56 w-full overflow-hidden",
+                project.isComingSoon && "grayscale opacity-50"
+              )}>
                 <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10" />
                 <Image
                   src={project.image}
@@ -99,18 +112,24 @@ export default function Projects() {
 
                 {/* Links */}
                 <div className="flex gap-4 border-t border-slate-700 pt-4">
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
-                  >
-                    <GithubIcon size={18} /> Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-                  >
-                    <ExternalLink size={18} /> Live Demo
-                  </a>
+                  {!project.isComingSoon ? (
+                    <>
+                      <a
+                        href={project.github}
+                        className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
+                      >
+                        <GithubIcon size={18} /> Code
+                      </a>
+                      <a
+                        href={project.demo}
+                        className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+                      >
+                        <ExternalLink size={18} /> Live Demo
+                      </a>
+                    </>
+                  ) : (
+                    <span className="text-xs text-slate-500 italic">Detail proyek akan segera tersedia</span>
+                  )}
                 </div>
               </div>
             </motion.div>

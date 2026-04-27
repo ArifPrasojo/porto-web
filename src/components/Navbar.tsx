@@ -39,10 +39,10 @@ export default function Navbar() {
       >
         <div
           className={cn(
-            "flex items-center justify-between w-full max-w-5xl h-16 px-6 md:px-10 rounded-full transition-all duration-300 border border-slate-800 shadow-2xl",
+            "flex items-center justify-between w-full max-w-5xl h-16 px-6 md:px-10 rounded-full transition-all duration-300 border border-white/10 ring-1 ring-black/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
             isScrolled
-              ? "bg-slate-900/90 backdrop-blur-xl"
-              : "bg-slate-900/40 backdrop-blur-md"
+              ? "bg-slate-900/95 backdrop-blur-2xl"
+              : "bg-slate-900/60 backdrop-blur-xl"
           )}
         >
           {/* Logo */}
