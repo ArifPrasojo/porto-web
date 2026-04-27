@@ -49,7 +49,7 @@ export default function Navbar() {
           <a href="#home" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-800 group-hover:border-[var(--color-accent)] transition-colors">
               <Image 
-                src="/logo.png" 
+                src="/logo-v2.png" 
                 alt="ArfPorto Logo" 
                 fill 
                 className="object-cover"
