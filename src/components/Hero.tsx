@@ -79,7 +79,7 @@ export default function Hero() {
             {/* Image Container */}
             <div className="absolute inset-4 overflow-hidden rounded-full border-4 border-[var(--color-primary)] shadow-2xl">
               <Image
-                src="/profile.jpg"
+                src="/img/profile.JPG"
                 alt="Foto Profil Arif Prasojo"
                 fill
                 className="object-cover"
