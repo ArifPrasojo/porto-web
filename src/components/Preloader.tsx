@@ -27,6 +27,8 @@ export default function Preloader() {
     return () => clearInterval(timer);
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <AnimatePresence>
       {isVisible && (
