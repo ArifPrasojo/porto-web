@@ -48,9 +48,9 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`p-6 rounded-2xl bg-[var(--color-secondary)] border border-slate-800 hover:border-[var(--color-accent)]/50 transition-colors`}
+                className="p-6 rounded-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-all hover:shadow-xl shadow-sm group"
               >
-                <div className="mb-4 bg-slate-800/50 w-16 h-16 rounded-xl flex items-center justify-center">
+                <div className="mb-4 bg-[var(--color-accent)]/10 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   {featureIcons[index]}
                 </div>
                 <h3 className="text-xl font-semibold text-[var(--color-text-main)] mb-2">

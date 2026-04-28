@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, PlusCircle, Globe } from "lucide-react";
+import { Menu, X, Search, PlusCircle, Globe, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useTheme } from "@/lib/ThemeContext";
 import { Language } from "@/lib/translations";
 
 const languages: { code: Language; flag: string; label: string }[] = [
@@ -16,6 +17,7 @@ const languages: { code: Language; flag: string; label: string }[] = [
 
 export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -99,6 +101,15 @@ export default function Navbar() {
               {t.nav.contact}
             </motion.a>
 
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-[var(--color-secondary)] border border-slate-700/50 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all"
+              aria-label="Toggle Theme"
+            >
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
             {/* Language Switcher */}
             <div className="relative">
               <button
@@ -114,15 +125,15 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute right-0 top-12 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
+                    className="absolute right-0 top-12 bg-[var(--color-secondary)] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
                   >
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
                         onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
                         className={cn(
-                          "flex items-center gap-3 w-full px-4 py-3 text-sm transition-colors hover:bg-slate-800",
-                          language === lang.code ? "text-[var(--color-accent)] font-bold" : "text-slate-300"
+                          "flex items-center gap-3 w-full px-4 py-3 text-sm transition-colors hover:bg-[var(--color-primary)]",
+                          language === lang.code ? "text-[var(--color-accent)] font-bold" : "text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]"
                         )}
                       >
                         <span className="text-lg">{lang.flag}</span>
@@ -143,7 +154,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-white"
+              className="md:hidden text-[var(--color-text-main)]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -158,7 +169,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden md:hidden shadow-2xl"
+              className="absolute top-20 left-4 right-4 bg-[var(--color-secondary)]/95 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden md:hidden shadow-2xl"
             >
               <div className="flex flex-col p-6 gap-4">
                 {navLinks.map((link, index) => (
@@ -166,7 +177,7 @@ export default function Navbar() {
                     key={index}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-slate-300 hover:text-white py-3 border-b border-slate-800 font-medium"
+                    className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] py-3 border-b border-slate-800/50 font-medium"
                   >
                     {link.name}
                   </a>
@@ -221,7 +232,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.9, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              className="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-[var(--color-secondary)] border border-slate-800 rounded-3xl shadow-2xl overflow-hidden"
             >
               <div className="p-6 flex items-center gap-4 border-b border-slate-800">
                 <Search className="text-slate-400" size={24} />

@@ -98,8 +98,8 @@ export default function Projects() {
                 className={cn(
                   "px-6 py-2 rounded-full text-sm font-bold transition-all border",
                   activeTab === tab.id 
-                    ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white shadow-lg" 
-                    : "bg-slate-900/50 border-slate-800 text-slate-400 hover:text-white hover:border-slate-600"
+                    ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white shadow-lg shadow-blue-500/20" 
+                    : "bg-[var(--color-secondary)] border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] hover:border-[var(--color-accent)]/30"
                 )}
               >
                 {tab.label}
@@ -118,11 +118,12 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="bg-[var(--color-secondary)] rounded-2xl overflow-hidden border border-slate-800 group hover:border-[var(--color-accent)]/50 transition-colors relative"
+                className="bg-[var(--color-secondary)] rounded-2xl overflow-hidden border border-[var(--color-border)] group hover:border-[var(--color-accent)]/50 transition-all hover:shadow-2xl relative"
+                suppressHydrationWarning
               >
                 {/* Coming Soon Badge */}
                 {project.isComingSoon && (
-                  <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
+                  <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg" suppressHydrationWarning>
                     {t.projects.comingSoon}
                   </div>
                 )}
@@ -131,8 +132,8 @@ export default function Projects() {
                 <div className={cn(
                   "relative h-56 w-full overflow-hidden",
                   project.isComingSoon && "grayscale opacity-50"
-                )}>
-                  <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10" />
+                )} suppressHydrationWarning>
+                  <div className="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10" suppressHydrationWarning />
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -142,7 +143,7 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col h-[calc(100%-14rem)]">
+                <div className="p-6 flex flex-col h-[calc(100%-14rem)]" suppressHydrationWarning>
                   <h3 className="text-xl font-bold text-[var(--color-text-main)] mb-3 group-hover:text-[var(--color-accent)] transition-colors">
                     {project.title}
                   </h3>
@@ -151,21 +152,21 @@ export default function Projects() {
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6" suppressHydrationWarning>
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="text-xs font-medium text-[var(--color-accent)] bg-blue-500/10 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-2 py-1 rounded">
                         {tech}
                       </span>
                     ))}
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4 border-t border-slate-700 pt-4 mt-auto">
+                  <div className="flex gap-4 border-t border-[var(--color-border)] pt-4 mt-auto" suppressHydrationWarning>
                     {!project.isComingSoon ? (
                       <>
                         <a
                           href={project.github}
-                          className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
+                          className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors"
                         >
                           <GithubIcon size={18} /> {t.projects.code}
                         </a>

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Preloader />
-      <main className="min-h-screen bg-[var(--color-primary)] selection:bg-[var(--color-accent)] selection:text-white text-base">
+      <main className="min-h-screen bg-[var(--color-primary)] selection:bg-[var(--color-accent)] selection:text-white text-base" suppressHydrationWarning>
         <Navbar />
         <Hero />
         <About />

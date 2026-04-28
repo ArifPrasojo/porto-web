@@ -57,7 +57,7 @@ export default function Experience() {
                         {exp.period}
                       </span>
                     </div>
-                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm">{exp.company}</div>
+                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm" suppressHydrationWarning>{exp.company}</div>
                     <ul className="list-disc list-outside ml-4 text-sm text-[var(--color-text-muted)] space-y-2">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
@@ -99,7 +99,7 @@ export default function Experience() {
                         {exp.period}
                       </span>
                     </div>
-                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm leading-tight">{exp.org}</div>
+                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm leading-tight" suppressHydrationWarning>{exp.org}</div>
                     <ul className="list-disc list-outside ml-4 text-sm text-[var(--color-text-muted)] space-y-2">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
