@@ -7,7 +7,7 @@ const workExperience = [
     {
     company: "PT Binary Cipta Solusindo",
     role: "Front End Developer",
-    period: "Agustus 2024 - Juni 2025",
+    period: "Agustus 2025 - Juni 2025",
     desc: [
       "Melakukan development front end dengan menggunakan JavaScript dan implementasi komponen pada Laravel.",
       "Melakukan scraping data yang dibutuhkan terkait bisnis."
@@ -16,7 +16,7 @@ const workExperience = [
   {
     company: "PT. Teknologi Indonesia Ciptahardya",
     role: "UI Designer",
-    period: "Februari 2025 - Juni 2025",
+    period: "Februari 2024 - Juni 2024",
     desc: [
       "Merancang antarmuka pengguna yang menarik, intuitif, dan mudah digunakan.",
       "Bekerja sama dengan tim produk dan pengembang untuk memastikan setiap elemen desain selaras dengan kebutuhan pengguna."
