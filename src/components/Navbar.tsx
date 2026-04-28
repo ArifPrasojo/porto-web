@@ -10,7 +10,7 @@ import { Language } from "@/lib/translations";
 
 const languages: { code: Language; flag: string; label: string }[] = [
   { code: "id", flag: "🇮🇩", label: "Indonesia" },
-  { code: "en", flag: "🇬🇧", label: "English" },
+  { code: "en", flag: "🇺🇸", label: "English" },
   { code: "ja", flag: "🇯🇵", label: "日本語" },
 ];
 
