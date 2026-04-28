@@ -9,6 +9,8 @@ export const translations = {
       skills: "Keahlian",
       projects: "Proyek",
       contact: "Hubungi Saya",
+      searchTitle: "Pencarian Cepat",
+      searchTags: ["Proyek", "Keahlian", "Pengalaman", "Tentang Saya"],
     },
     hero: {
       greeting: "Halo, Saya",
@@ -101,6 +103,8 @@ export const translations = {
       skills: "Skills",
       projects: "Projects",
       contact: "Contact Me",
+      searchTitle: "Quick Search",
+      searchTags: ["Projects", "Skills", "Experience", "About Me"],
     },
     hero: {
       greeting: "Hello, I'm",
@@ -193,6 +197,8 @@ export const translations = {
       skills: "スキル",
       projects: "プロジェクト",
       contact: "お問い合わせ",
+      searchTitle: "クイック検索",
+      searchTags: ["プロジェクト", "スキル", "経験", "私について"],
     },
     hero: {
       greeting: "こんにちは、私は",

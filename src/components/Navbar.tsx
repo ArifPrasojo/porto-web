@@ -248,10 +248,10 @@ export default function Navbar() {
                     <p className="text-sm mt-2">Fitur pencarian database akan segera hadir!</p>
                   </div>
                 ) : (
-                  <div className="space-y-4">
-                    <p className="text-slate-500 text-sm uppercase tracking-widest font-bold">Pencarian Cepat</p>
-                    <div className="flex flex-wrap justify-center gap-3">
-                      {["Proyek", "Keahlian", "Pengalaman", "Tentang Saya"].map((tag) => (
+                  <div className="space-y-4" suppressHydrationWarning>
+                    <p className="text-slate-500 text-sm uppercase tracking-widest font-bold">{t.nav.searchTitle}</p>
+                    <div className="flex flex-wrap justify-center gap-3" suppressHydrationWarning>
+                      {t.nav.searchTags.map((tag) => (
                         <button 
                           key={tag}
                           onClick={() => setSearchQuery(tag)}

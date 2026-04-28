@@ -44,7 +44,7 @@ export default function Skills() {
               <h3 className="text-2xl font-bold text-[var(--color-text-main)] mb-6 pb-4 border-b border-slate-800">
                 {t.skills.categories[group.id as keyof typeof t.skills.categories]}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3" suppressHydrationWarning>
                 {group.items.map((item, i) => (
                   <motion.span
                     key={i}
