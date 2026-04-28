@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const skills = [
   { category: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "bootstrap", "VITE"] },
@@ -10,6 +11,7 @@ const skills = [
 ];
 
 export default function Skills() {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="py-24 bg-[var(--color-secondary)]/30 relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -21,11 +23,11 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
-            Keahlian & Teknologi
+            {t.skills.title}
           </h2>
           <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
           <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
-            Teknologi dan alat yang saya gunakan untuk mengubah ide menjadi produk digital yang nyata.
+            {t.skills.subtitle}
           </p>
         </motion.div>
 

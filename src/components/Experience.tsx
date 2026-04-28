@@ -2,68 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Users } from "lucide-react";
-
-const workExperience = [
-    {
-    company: "PT Binary Cipta Solusindo",
-    role: "Front End Developer",
-    period: "Agustus 2025 - Juni 2025",
-    desc: [
-      "Melakukan development front end dengan menggunakan JavaScript dan implementasi komponen pada Laravel.",
-      "Melakukan scraping data yang dibutuhkan terkait bisnis."
-    ]
-  },
-  {
-    company: "PT. Teknologi Indonesia Ciptahardya",
-    role: "UI Designer",
-    period: "Februari 2024 - Juni 2024",
-    desc: [
-      "Merancang antarmuka pengguna yang menarik, intuitif, dan mudah digunakan.",
-      "Bekerja sama dengan tim produk dan pengembang untuk memastikan setiap elemen desain selaras dengan kebutuhan pengguna."
-    ]
-  },
-  {
-    company: "Samsung Store (Pare)",
-    role: "Produk Marketing",
-    period: "Januari 2022 - April 2022",
-    desc: [
-      "Bertanggung jawab membantu Staf Penjualan dalam operasional toko.",
-      "Melakukan promosi penjualan produk secara langsung kepada konsumen."
-    ]
-  },
-  {
-    company: "indoweb.id",
-    role: "Digital Marketing & Front End",
-    period: "Januari 2020 - April 2020",
-    desc: [
-      "Berkontribusi dalam promosi penjualan produk melalui metode digital marketing.",
-      "Mengelola media sosial dan membuat konten promosi."
-    ]
-  }
-];
-
-const orgExperience = [
-  {
-    org: "Himpunan Mahasiswa Teknologi Informasi (Politeknik Negeri Malang)",
-    role: "Steering Committee",
-    period: "Februari 2024 - Februari 2025",
-    desc: [
-      "Berperan sebagai Pengawas pada Program Kerja Semarak Pekan Olahraga Teknologi Informasi dan Agenda Olahraga.",
-      "Berperan sebagai Pengawas pada Program Kerja Seminar Nasional Tahun 2024."
-    ]
-  },
-  {
-    org: "Himpunan Mahasiswa Teknologi Informasi (Politenik Negeri Malang)",
-    role: "Organizing Committee",
-    period: "Desember 2022 - Januari 2024",
-    desc: [
-      "Berkontribusi sebagai Ketua Pelaksana pada Program Kerja Semarak Pekan Olahraga Teknologi Informasi.",
-      "Berkontribusi sebagai Koordinator Lapangan dan Sie Acara pada Program Kerja Seminar Nasional Tahun 2023."
-    ]
-  }
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Experience() {
+  const { t } = useLanguage();
   return (
     <section id="experience" className="py-24 bg-[var(--color-primary)] relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -75,11 +17,11 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
-            Pengalaman
+            {t.experience.title}
           </h2>
           <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
           <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
-            Perjalanan karir profesional dan kontribusi saya dalam organisasi.
+            {t.experience.subtitle}
           </p>
         </motion.div>
 
@@ -91,11 +33,11 @@ export default function Experience() {
               <div className="p-3 bg-[var(--color-accent)]/20 rounded-lg text-[var(--color-accent)]">
                 <Briefcase size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">Pengalaman Kerja</h3>
+              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.workTitle}</h3>
             </div>
             
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
-              {workExperience.map((exp, index) => (
+              {t.experience.work.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -30 }}
@@ -133,11 +75,11 @@ export default function Experience() {
               <div className="p-3 bg-purple-500/20 rounded-lg text-purple-400">
                 <Users size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">Pengalaman Organisasi</h3>
+              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.orgTitle}</h3>
             </div>
             
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
-              {orgExperience.map((exp, index) => (
+              {t.experience.org.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 30 }}
@@ -174,3 +116,4 @@ export default function Experience() {
     </section>
   );
 }
+

@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Ornaments */}
@@ -21,7 +23,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-[var(--color-accent)] font-medium tracking-wider uppercase text-sm mb-4 block">
-              Halo, Saya
+              {t.hero.greeting}
             </span>
           </motion.div>
 
@@ -43,8 +45,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[var(--color-text-muted)] mb-10 max-w-2xl leading-relaxed mx-auto md:mx-0"
           >
-            Saya membangun antarmuka web modern yang estetis, cepat, dan responsif.
-            Bersemangat dalam mengeksplorasi teknologi terbaru untuk menciptakan pengalaman digital yang luar biasa.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -57,7 +58,7 @@ export default function Hero() {
               href="#projects"
               className="flex items-center gap-2 px-8 py-4 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-blue-600 transition-all hover:gap-4 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
             >
-              Lihat Proyek <ArrowRight size={18} />
+              {t.hero.cta} <ArrowRight size={18} />
             </a>
           </motion.div>
         </div>

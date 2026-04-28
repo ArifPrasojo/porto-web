@@ -87,7 +87,7 @@ export default function Preloader() {
               className="flex items-center gap-4 text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em]"
             >
               <span>Initializing</span>
-              <div className="w-12 h-[1px] bg-slate-800" />
+              <span className="text-slate-700 w-12 h-px bg-slate-800 block"></span>
               <span className="text-blue-400 min-w-[3ch]">{count}%</span>
             </motion.div>
 

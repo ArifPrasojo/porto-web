@@ -2,24 +2,35 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, PlusCircle } from "lucide-react";
+import { Menu, X, Search, PlusCircle, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 import Image from "next/image";
+import { useLanguage } from "@/lib/LanguageContext";
+import { Language } from "@/lib/translations";
 
-const navLinks = [
-  { name: "Beranda", href: "#home" },
-  { name: "Tentang", href: "#about" },
-  { name: "Pengalaman", href: "#experience" },
-  { name: "Keahlian", href: "#skills" },
-  { name: "Proyek", href: "#projects" },
+const languages: { code: Language; flag: string; label: string }[] = [
+  { code: "id", flag: "🇮🇩", label: "Indonesia" },
+  { code: "en", flag: "🇬🇧", label: "English" },
+  { code: "ja", flag: "🇯🇵", label: "日本語" },
 ];
 
 export default function Navbar() {
+  const { t, language, setLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const navLinks = [
+    { name: t.nav.home, href: "#home" },
+    { name: t.nav.about, href: "#about" },
+    { name: t.nav.experience, href: "#experience" },
+    { name: t.nav.skills, href: "#skills" },
+    { name: t.nav.projects, href: "#projects" },
+  ];
+
+  const currentLang = languages.find(l => l.code === language)!;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +86,7 @@ export default function Navbar() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <motion.a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=arifprasojo999@gmail.com"
               target="_blank"
@@ -85,9 +96,44 @@ export default function Navbar() {
               className="hidden md:flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full text-sm font-bold hover:bg-slate-200 transition-colors"
             >
               <PlusCircle size={18} />
-              Hubungi Saya
+              {t.nav.contact}
             </motion.a>
-            
+
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800"
+              >
+                <span className="text-base">{currentLang.flag}</span>
+                <Globe size={14} />
+              </button>
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    className="absolute right-0 top-12 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
+                        className={cn(
+                          "flex items-center gap-3 w-full px-4 py-3 text-sm transition-colors hover:bg-slate-800",
+                          language === lang.code ? "text-[var(--color-accent)] font-bold" : "text-slate-300"
+                        )}
+                      >
+                        <span className="text-lg">{lang.flag}</span>
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button 
               onClick={() => setIsSearchOpen(true)}
               className="text-slate-400 hover:text-white transition-colors p-2"
@@ -133,8 +179,26 @@ export default function Navbar() {
                   className="mt-2 flex items-center justify-center gap-2 px-5 py-4 bg-white text-black rounded-2xl font-bold"
                 >
                   <PlusCircle size={20} />
-                  Hubungi Saya
+                  {t.nav.contact}
                 </a>
+
+                {/* Mobile Language Switcher */}
+                <div className="flex gap-2 mt-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => { setLanguage(lang.code); setIsMobileMenuOpen(false); }}
+                      className={cn(
+                        "flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold border transition-all",
+                        language === lang.code
+                          ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white"
+                          : "border-slate-700 text-slate-400"
+                      )}
+                    >
+                      {lang.flag} {lang.code.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}

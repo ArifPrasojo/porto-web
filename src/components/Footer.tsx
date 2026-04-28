@@ -1,4 +1,7 @@
+"use client";
+
 import { Mail } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const GithubIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -15,6 +18,8 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
 );
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="bg-slate-950 py-12 border-t border-slate-900">
       <div className="container mx-auto px-6 md:px-12">
@@ -25,7 +30,7 @@ export default function Footer() {
               ArfPorto<span className="text-[var(--color-accent)]">.</span>
             </h2>
             <p className="text-[var(--color-text-muted)] text-sm">
-              © {new Date().getFullYear()} Arif Prasojo. All rights reserved.
+              © {new Date().getFullYear()} Arif Prasojo. {t.footer.rights}
             </p>
           </div>
 
@@ -61,3 +66,4 @@ export default function Footer() {
     </footer>
   );
 }
+

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const GithubIcon = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -66,6 +67,7 @@ const projects = [
 ];
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("all");
 
   const filteredProjects = activeTab === "all" 
@@ -83,16 +85,16 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
-            Proyek Unggulan
+            {t.projects.title}
           </h2>
           <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
           
           {/* Tab Filter */}
           <div className="flex flex-wrap justify-center gap-4 mt-10">
             {[
-              { id: "all", label: "Semua" },
-              { id: "software", label: "Software Development" },
-              { id: "uiux", label: "UI/UX Design" }
+              { id: "all", label: t.projects.all },
+              { id: "software", label: t.projects.software },
+              { id: "uiux", label: t.projects.uiux }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -125,7 +127,7 @@ export default function Projects() {
                 {/* Coming Soon Badge */}
                 {project.isComingSoon && (
                   <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
-                    COMING SOON
+                    {t.projects.comingSoon}
                   </div>
                 )}
 
@@ -154,9 +156,9 @@ export default function Projects() {
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((t, i) => (
+                    {project.tech.map((tech, i) => (
                       <span key={i} className="text-xs font-medium text-[var(--color-accent)] bg-blue-500/10 px-2 py-1 rounded">
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -169,17 +171,17 @@ export default function Projects() {
                           href={project.github}
                           className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
                         >
-                          <GithubIcon size={18} /> Code
+                          <GithubIcon size={18} /> {t.projects.code}
                         </a>
                         <a
                           href={project.demo}
                           className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
                         >
-                          <ExternalLink size={18} /> Live Demo
+                          <ExternalLink size={18} /> {t.projects.liveDemo}
                         </a>
                       </>
                     ) : (
-                      <span className="text-xs text-slate-500 italic">Detail proyek akan segera tersedia</span>
+                      <span className="text-xs text-slate-500 italic">{t.projects.comingSoonDetail}</span>
                     )}
                   </div>
                 </div>
