@@ -39,9 +39,9 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-[var(--color-primary)] p-8 rounded-2xl border border-slate-800 shadow-xl"
+              className="bg-[var(--color-primary)] p-8 rounded-2xl border border-[var(--color-border)] shadow-xl"
             >
-              <h3 className="text-2xl font-bold text-[var(--color-text-main)] mb-6 pb-4 border-b border-slate-800">
+              <h3 className="text-2xl font-bold text-[var(--color-text-main)] mb-6 pb-4 border-b border-[var(--color-border)]">
                 {t.skills.categories[group.id as keyof typeof t.skills.categories]}
               </h3>
               <div className="flex flex-wrap gap-3" suppressHydrationWarning>

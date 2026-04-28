@@ -58,6 +58,7 @@ export default function Preloader() {
                   src="/logo-v2.png" 
                   alt="Logo" 
                   fill 
+                  sizes="96px"
                   className="object-cover p-1"
                 />
               </div>

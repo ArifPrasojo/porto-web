@@ -75,7 +75,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-accent)] to-blue-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
 
             {/* Inner Ring */}
-            <div className="absolute inset-2 bg-[var(--color-secondary)] rounded-full border border-slate-700/50"></div>
+            <div className="absolute inset-2 bg-[var(--color-secondary)] rounded-full border border-[var(--color-border)]"></div>
 
             {/* Image Container */}
             <div className="absolute inset-4 overflow-hidden rounded-full border-4 border-[var(--color-primary)] shadow-2xl">
@@ -96,7 +96,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 bg-[var(--color-primary)] p-3 rounded-2xl border border-slate-700 shadow-xl"
+              className="absolute -bottom-4 -right-4 bg-[var(--color-primary)] p-3 rounded-2xl border border-[var(--color-border)] shadow-xl"
             >
             </motion.div>
           </div>

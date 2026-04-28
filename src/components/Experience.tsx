@@ -50,7 +50,7 @@ export default function Experience() {
                     <div className="w-2.5 h-2.5 bg-current rounded-full" />
                   </div>
                   
-                  <div className="flex-1 p-6 rounded-2xl bg-[var(--color-secondary)] border border-slate-800 hover:border-[var(--color-accent)]/50 transition-colors">
+                  <div className="flex-1 p-6 rounded-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-colors">
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
                       <h4 className="font-bold text-lg text-[var(--color-text-main)]">{exp.role}</h4>
                       <span className="text-xs font-medium text-[var(--color-accent)] bg-blue-500/10 px-3 py-1 rounded-full w-fit">

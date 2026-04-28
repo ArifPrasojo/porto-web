@@ -65,6 +65,7 @@ export default function Navbar() {
                 src="/logo-v2.png" 
                 alt="ArfPorto Logo" 
                 fill 
+                sizes="40px"
                 className="object-cover p-1"
               />
             </div>
@@ -104,7 +105,7 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-[var(--color-secondary)] border border-slate-700/50 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all"
+              className="p-2 rounded-xl bg-[var(--color-secondary)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all"
               aria-label="Toggle Theme"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -128,7 +129,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute right-0 top-12 bg-[var(--color-secondary)] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
+                    className="absolute right-0 top-12 bg-[var(--color-secondary)] border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
                   >
                     {languages.map((lang) => (
                       <button
@@ -172,7 +173,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-20 left-4 right-4 bg-[var(--color-secondary)]/95 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden md:hidden shadow-2xl"
+              className="absolute top-20 left-4 right-4 bg-[var(--color-secondary)]/95 backdrop-blur-xl border border-[var(--color-border)] rounded-3xl overflow-hidden md:hidden shadow-2xl"
             >
               <div className="flex flex-col p-6 gap-4">
                 {navLinks.map((link, index) => (
@@ -180,7 +181,7 @@ export default function Navbar() {
                     key={index}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] py-3 border-b border-slate-800/50 font-medium"
+                    className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] py-3 border-b border-[var(--color-border)] font-medium"
                   >
                     {link.name}
                   </a>
@@ -206,7 +207,7 @@ export default function Navbar() {
                         "flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold border transition-all",
                         language === lang.code
                           ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white"
-                          : "border-slate-700 text-slate-400"
+                          : "border-[var(--color-border)] text-slate-400"
                       )}
                     >
                       {lang.flag} {lang.code.toUpperCase()}
@@ -235,9 +236,9 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.9, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              className="relative w-full max-w-2xl bg-[var(--color-secondary)] border border-slate-800 rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] rounded-3xl shadow-2xl overflow-hidden"
             >
-              <div className="p-6 flex items-center gap-4 border-b border-slate-800">
+              <div className="p-6 flex items-center gap-4 border-b border-[var(--color-border)]">
                 <Search className="text-slate-400" size={24} />
                 <input
                   autoFocus
