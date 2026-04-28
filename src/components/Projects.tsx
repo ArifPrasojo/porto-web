@@ -13,10 +13,8 @@ const GithubIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-const projects = [
+const projectsData = [
   {
-    title: "AI Summarizer App",
-    desc: "Aplikasi web untuk merangkum dokumen panjang menggunakan AI (Gemini API).",
     tech: ["React", "Node.js", "Gemini AI"],
     category: "software",
     github: "https://github.com/ArifPrasojo/summairaze-AI.git",
@@ -25,8 +23,6 @@ const projects = [
     isComingSoon: false,
   },
   {
-    title: "E-Commerce Dashboard",
-    desc: "Dashboard admin modern untuk mengelola produk, pesanan, dan analitik toko online.",
     tech: ["Next.js", "Tailwind CSS", "Recharts"],
     category: "software",
     github: "#",
@@ -35,8 +31,6 @@ const projects = [
     isComingSoon: true,
   },
   {
-    title: "Sistem Manajemen Kedai Kopi",
-    desc: "Aplikasi Point of Sale (POS) untuk kedai kopi dengan fitur manajemen stok dan kasir.",
     tech: ["Laravel", "Tailwind CSS", "MySQL"],
     category: "software",
     github: "#",
@@ -45,8 +39,6 @@ const projects = [
     isComingSoon: true,
   },
   {
-    title: "Mobile Banking Redesign",
-    desc: "Eksplorasi desain antarmuka aplikasi perbankan mobile dengan fokus pada kemudahan navigasi.",
     tech: ["Figma", "Adobe XD"],
     category: "uiux",
     github: "#",
@@ -55,8 +47,6 @@ const projects = [
     isComingSoon: true,
   },
   {
-    title: "Landing Page SaaS",
-    desc: "Desain landing page untuk produk SaaS dengan gaya minimalis dan tipografi modern.",
     tech: ["Figma", "Photoshop"],
     category: "uiux",
     github: "#",
@@ -69,6 +59,12 @@ const projects = [
 export default function Projects() {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("all");
+
+  const projects = projectsData.map((p, i) => ({
+    ...p,
+    title: t.projects.list[i]?.title || "",
+    desc: t.projects.list[i]?.desc || "",
+  }));
 
   const filteredProjects = activeTab === "all" 
     ? projects 
@@ -193,3 +189,4 @@ export default function Projects() {
     </section>
   );
 }
+

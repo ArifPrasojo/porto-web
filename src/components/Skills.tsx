@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const skills = [
-  { category: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "bootstrap", "VITE"] },
-  { category: "Backend", items: ["Node.js", "Express", "REST API", "PostgreSQL", "MySQL","PHP","LARAVEL","FILAMENT","JWT","NGINX","BUN"] },
-  { category: "UI/UX & Design", items: ["Figma", "Wireframing", "Prototyping", "User Research"] },
-  { category: "Tools", items: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "LINUX"] },
+const skillGroups = [
+  { id: "frontend", items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "bootstrap", "VITE"] },
+  { id: "backend", items: ["Node.js", "Express", "REST API", "PostgreSQL", "MySQL","PHP","LARAVEL","FILAMENT","JWT","NGINX","BUN"] },
+  { id: "design", items: ["Figma", "Wireframing", "Prototyping", "User Research"] },
+  { id: "tools", items: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "LINUX"] },
 ];
 
 export default function Skills() {
@@ -32,7 +32,7 @@ export default function Skills() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((skillGroup, index) => (
+          {skillGroups.map((group, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -42,10 +42,10 @@ export default function Skills() {
               className="bg-[var(--color-primary)] p-8 rounded-2xl border border-slate-800 shadow-xl"
             >
               <h3 className="text-2xl font-bold text-[var(--color-text-main)] mb-6 pb-4 border-b border-slate-800">
-                {skillGroup.category}
+                {t.skills.categories[group.id as keyof typeof t.skills.categories]}
               </h3>
               <div className="flex flex-wrap gap-3">
-                {skillGroup.items.map((item, i) => (
+                {group.items.map((item, i) => (
                   <motion.span
                     key={i}
                     whileHover={{ scale: 1.05, backgroundColor: "var(--color-accent)", color: "#fff" }}

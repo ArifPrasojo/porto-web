@@ -7,10 +7,12 @@ import Image from "next/image";
 export default function Preloader() {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   const brandName = "ArfPorto.";
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => {
       setCount((prev) => {
         if (prev >= 100) {

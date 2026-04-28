@@ -58,6 +58,12 @@ export const translations = {
       title: "Keahlian & Teknologi",
       subtitle: "Teknologi dan alat yang saya gunakan untuk mengubah ide menjadi produk digital yang nyata.",
       techStack: "Tech Stack:",
+      categories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        design: "UI/UX & Desain",
+        tools: "Alat",
+      },
     },
     projects: {
       title: "Proyek Unggulan",
@@ -69,6 +75,13 @@ export const translations = {
       comingSoonDetail: "Detail proyek akan segera tersedia",
       code: "Code",
       liveDemo: "Live Demo",
+      list: [
+        { title: "AI Summarizer App", desc: "Aplikasi web untuk merangkum dokumen panjang menggunakan AI (Gemini API)." },
+        { title: "E-Commerce Dashboard", desc: "Dashboard admin modern untuk mengelola produk, pesanan, dan analitik toko online." },
+        { title: "Sistem Manajemen Kedai Kopi", desc: "Aplikasi Point of Sale (POS) untuk kedai kopi dengan fitur manajemen stok dan kasir." },
+        { title: "Mobile Banking Redesign", desc: "Eksplorasi desain antarmuka aplikasi perbankan mobile dengan fokus pada kemudahan navigasi." },
+        { title: "Landing Page SaaS", desc: "Desain landing page untuk produk SaaS dengan gaya minimalis dan tipografi modern." },
+      ],
     },
     footer: {
       description: "UI Designer & Web Developer yang bersemangat membangun produk digital yang indah dan fungsional.",
@@ -137,6 +150,12 @@ export const translations = {
       title: "Skills & Technologies",
       subtitle: "Technologies and tools I use to turn ideas into real digital products.",
       techStack: "Tech Stack:",
+      categories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        design: "UI/UX & Design",
+        tools: "Tools",
+      },
     },
     projects: {
       title: "Featured Projects",
@@ -148,6 +167,13 @@ export const translations = {
       comingSoonDetail: "Project details coming soon",
       code: "Code",
       liveDemo: "Live Demo",
+      list: [
+        { title: "AI Summarizer App", desc: "Web application to summarize long documents using AI (Gemini API)." },
+        { title: "E-Commerce Dashboard", desc: "Modern admin dashboard to manage products, orders, and store analytics." },
+        { title: "Coffee Shop Management System", desc: "Point of Sale (POS) application for coffee shops with stock and cashier management features." },
+        { title: "Mobile Banking Redesign", desc: "UI design exploration of a mobile banking application focused on navigation ease." },
+        { title: "SaaS Landing Page", desc: "Landing page design for SaaS products with minimalist style and modern typography." },
+      ],
     },
     footer: {
       description: "UI Designer & Web Developer passionate about building beautiful and functional digital products.",
@@ -162,7 +188,7 @@ export const translations = {
   ja: {
     nav: {
       home: "ホーム",
-      about: "About",
+      about: "私について",
       experience: "経験",
       skills: "スキル",
       projects: "プロジェクト",
@@ -216,6 +242,12 @@ export const translations = {
       title: "スキル & テクノロジー",
       subtitle: "アイデアを現実のデジタル製品に変えるために使用する技術とツール。",
       techStack: "テックスタック:",
+      categories: {
+        frontend: "フロントエンド",
+        backend: "バックエンド",
+        design: "UI/UX & デザイン",
+        tools: "ツール",
+      },
     },
     projects: {
       title: "主要プロジェクト",
@@ -227,6 +259,13 @@ export const translations = {
       comingSoonDetail: "プロジェクトの詳細は近日公開予定",
       code: "コード",
       liveDemo: "デモ",
+      list: [
+        { title: "AI 要約アプリ", desc: "AI (Gemini API) を使用して長いドキュメントを要約するウェブアプリケーション。" },
+        { title: "Eコマースダッシュボード", desc: "製品、注文、店舗分析を管理するためのモダンなアドミンダッシュボード。" },
+        { title: "コーヒーショップ管理システム", desc: "在庫およびレジ管理機能を備えたコーヒーショップ向けのPOSアプリケーション。" },
+        { title: "モバイルバンキングの再設計", desc: "ナビゲーションのしやすさに焦点を当てたモバイルバンキングアプリケーションのUIデザイン探索。" },
+        { title: "SaaSランディングページ", desc: "ミニマリストスタイルとモダンなタイポグラフィを備えたSaaS製品のランディングページデザイン。" },
+      ],
     },
     footer: {
       description: "美しく機能的なデジタル製品の構築に情熱を持つUIデザイナー & Webデベロッパー。",
