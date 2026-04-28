@@ -52,24 +52,24 @@ export default function Navbar() {
       >
         <div
           className={cn(
-            "flex items-center justify-between w-full max-w-5xl h-16 px-6 md:px-10 rounded-full transition-all duration-300 border border-white/10 ring-1 ring-black/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
+            "flex items-center justify-between w-full max-w-5xl h-16 px-6 md:px-10 rounded-full transition-all duration-300 border border-slate-700/30 shadow-xl",
             isScrolled
-              ? "bg-slate-900/95 backdrop-blur-2xl"
-              : "bg-slate-900/60 backdrop-blur-xl"
+              ? "bg-[var(--color-secondary)]/90 backdrop-blur-2xl"
+              : "bg-[var(--color-secondary)]/60 backdrop-blur-xl"
           )}
         >
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-800 group-hover:border-[var(--color-accent)] transition-colors">
+            <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-primary)] group-hover:border-[var(--color-accent)] transition-colors">
               <Image 
                 src="/logo-v2.png" 
                 alt="ArfPorto Logo" 
                 fill 
-                className="object-cover"
+                className="object-cover p-1"
               />
             </div>
-            <span className="text-xl font-bold tracking-tighter text-white hidden sm:block">
-              ArfPorto<span className="font-light text-slate-400">.</span>
+            <span className="text-xl font-bold tracking-tighter text-[var(--color-text-main)] hidden sm:block">
+              ArfPorto<span className="font-light text-[var(--color-accent)]">.</span>
             </span>
           </a>
 
@@ -80,7 +80,7 @@ export default function Navbar() {
                 key={index}
                 href={link.href}
                 whileHover={{ y: -1 }}
-                className="text-slate-300 hover:text-white transition-colors text-sm font-semibold"
+                className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors text-sm font-semibold"
               >
                 {link.name}
               </motion.a>
@@ -95,7 +95,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full text-sm font-bold hover:bg-slate-200 transition-colors"
+              className="hidden md:flex items-center gap-2 px-4 py-2 bg-[var(--color-text-main)] text-[var(--color-primary)] rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-lg"
             >
               <PlusCircle size={18} />
               {t.nav.contact}
@@ -114,10 +114,13 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800"
+                className="flex items-center gap-1 text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-all p-2 rounded-xl hover:bg-[var(--color-primary)]/50 group"
               >
-                <span className="text-base">{currentLang.flag}</span>
-                <Globe size={14} />
+                <div className="flex flex-col items-end leading-none ml-1">
+                  <span className="text-[10px] font-bold tracking-tight opacity-80 group-hover:text-[var(--color-accent)]">{language.toUpperCase()}</span>
+                </div>
+                <div className="w-[1px] h-3 bg-[var(--color-border)] opacity-50" />
+                <Globe size={14} className="group-hover:rotate-12 transition-transform" />
               </button>
               <AnimatePresence>
                 {isLangOpen && (
@@ -147,7 +150,7 @@ export default function Navbar() {
 
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="text-slate-400 hover:text-white transition-colors p-2"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors p-2"
             >
               <Search size={20} />
             </button>
