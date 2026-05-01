@@ -15,6 +15,14 @@ const GithubIcon = ({ size = 24, className = "" }) => (
 
 const projectsData = [
   {
+    tech: ["Next.js 16", "Supabase", "Prisma", "Tailwind CSS v4", "PWA"],
+    category: "software",
+    github: "https://github.com/ArifPrasojo/el-strategis",
+    demo: "https://el-strategis.vercel.app/",
+    image: "/img/elstrategis.png",
+    isComingSoon: false,
+  },
+  {
     tech: ["React", "Node.js", "Gemini AI"],
     category: "software",
     github: "https://github.com/ArifPrasojo/summairaze-AI.git",
