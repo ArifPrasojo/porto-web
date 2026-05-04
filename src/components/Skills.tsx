@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 const skillGroups = [
   { id: "frontend", items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "bootstrap", "VITE"] },
-  { id: "backend", items: ["Node.js", "Express", "REST API", "PostgreSQL", "MySQL","PHP","LARAVEL","FILAMENT","JWT","NGINX","BUN"] },
+  { id: "backend", items: ["Node.js", "Express", "REST API", "PostgreSQL", "MySQL","PHP","LARAVEL","FILAMENT","JWT","NGINX","BUN","Typescript"] },
   { id: "design", items: ["Figma", "Wireframing", "Prototyping", "User Research"] },
   { id: "tools", items: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "LINUX"] },
 ];
