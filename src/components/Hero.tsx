@@ -8,7 +8,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function Hero() {
   const { t } = useLanguage();
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-22 pb-20 md:pt-16 md:pb-0 overflow-hidden">
       {/* Background Ornaments */}
       <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse" />
       <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-blue-400 rounded-full mix-blend-screen filter blur-[128px] opacity-20" />
@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex-1 w-full max-w-[280px] sm:max-w-md mx-auto md:max-w-none flex justify-center mt-10 md:mt-0"
+          className="flex-1 w-full max-w-[280px] sm:max-w-md mx-auto md:max-w-none flex justify-center mt-10 mb-12 md:mt-0 md:mb-0"
         >
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
             {/* Glow Effect */}
