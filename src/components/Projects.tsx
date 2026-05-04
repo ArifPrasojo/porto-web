@@ -47,21 +47,53 @@ const projectsData = [
     isComingSoon: true,
   },
   {
-    tech: ["Figma", "Adobe XD"],
+    tech: ["Figma"],
     category: "uiux",
     github: "#",
-    demo: "#",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop",
-    isComingSoon: true,
+    demo: "https://www.figma.com/design/e9R3jbFE2c7A7d7qZj06vE/AMBULANS---GO?node-id=177-2&t=oLAlpI2deg2jFb5F-0",
+    image: "/img/ambulans_go.png",
+    isComingSoon: false,
   },
   {
-    tech: ["Figma", "Photoshop"],
+    tech: ["Figma"],
+    category: "uiux",
+    github: "#",
+    demo: "https://www.figma.com/design/UYmZkiQsA1VmY4Dqs0NZcx/Artikel-UI?node-id=0-1&t=zFzrw050suhmH777-1",
+    image: "/img/artikel_ui.png",
+    isComingSoon: false,
+  },
+  {
+    tech: ["Figma"],
+    category: "uiux",
+    github: "#",
+    demo: "https://www.figma.com/proto/fbfFt7voCCtNbADbFq9aWy/Project-File?page-id=0%3A1&node-id=2040-901&viewport=-1395%2C312%2C0.29&t=8VnOCsfdbVhIf8l7-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2040%3A901&show-proto-sidebar=1",
+    image: "/img/portal_pertanian.png",
+    isComingSoon: false,
+  },
+  {
+    tech: ["Figma"],
+    category: "uiux",
+    github: "#",
+    demo: "https://www.figma.com/proto/fbfFt7voCCtNbADbFq9aWy/Project-File?page-id=2080%3A1042&node-id=2181-61722&p=f&viewport=361%2C348%2C0.16&t=h8XrshpLbUUXgiRY-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2181%3A61722&show-proto-sidebar=1",
+    image: "/img/duitkas.jpg",
+    isComingSoon: false,
+  },
+  {
+    tech: ["Figma"],
+    category: "uiux",
+    github: "#",
+    demo: "https://www.figma.com/proto/fbfFt7voCCtNbADbFq9aWy/Project-File?page-id=2246%3A12775&node-id=2248-13705&viewport=346%2C2309%2C0.47&t=wOCiHJ8zthErBP1Q-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2248%3A13705&show-proto-sidebar=1",
+    image: "/img/technova.png",
+    isComingSoon: false,
+  },
+  {
+    tech: ["Next.js", "Figma"],
     category: "uiux",
     github: "#",
     demo: "#",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop",
     isComingSoon: true,
-  },
+  }
 ];
 
 export default function Projects() {
@@ -173,12 +205,14 @@ export default function Projects() {
                   <div className="flex gap-4 border-t border-[var(--color-border)] pt-4 mt-auto" suppressHydrationWarning>
                     {!project.isComingSoon ? (
                       <>
-                        <a
-                          href={project.github}
-                          className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors"
-                        >
-                          <GithubIcon size={18} /> {t.projects.code}
-                        </a>
+                        {project.github !== "#" && (
+                          <a
+                            href={project.github}
+                            className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors"
+                          >
+                            <GithubIcon size={18} /> {t.projects.code}
+                          </a>
+                        )}
                         <a
                           href={project.demo}
                           className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
