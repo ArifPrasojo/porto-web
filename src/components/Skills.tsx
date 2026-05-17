@@ -25,7 +25,7 @@ export default function Skills() {
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
             {t.skills.title}
           </h2>
-          <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
+          <div className="w-20 h-2 bg-[var(--color-highlight)] mx-auto mb-6 mecha-cut"></div>
           <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
             {t.skills.subtitle}
           </p>
@@ -39,7 +39,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-[var(--color-primary)] p-8 rounded-2xl border border-[var(--color-border)] shadow-xl"
+              className="bg-[var(--color-primary)] p-8 mecha-cut mecha-border border-t-4 border-t-[var(--color-highlight)] shadow-xl"
             >
               <h3 className="text-2xl font-bold text-[var(--color-text-main)] mb-6 pb-4 border-b border-[var(--color-border)]">
                 {t.skills.categories[group.id as keyof typeof t.skills.categories]}
@@ -49,7 +49,7 @@ export default function Skills() {
                   <motion.span
                     key={i}
                     whileHover={{ scale: 1.05, backgroundColor: "var(--color-accent)", color: "#fff" }}
-                    className="px-4 py-2 bg-[var(--color-secondary)] text-[var(--color-text-muted)] rounded-lg text-sm font-medium transition-colors cursor-default"
+                    className="px-4 py-2 bg-[var(--color-secondary)] text-[var(--color-text-muted)] mecha-cut-sm border border-[var(--color-border)] hover:border-[var(--color-highlight)] text-sm font-medium transition-colors cursor-default"
                   >
                     {item}
                   </motion.span>

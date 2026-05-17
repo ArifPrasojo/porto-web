@@ -39,7 +39,7 @@ export default function Footer() {
               href="https://github.com/ArifPrasojo"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-white transition-all hover:-translate-y-1 border border-[var(--color-border)]"
+              className="w-10 h-10 mecha-cut-sm bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-text)] transition-all hover:-translate-y-1 border border-[var(--color-border)]"
             >
               <GithubIcon size={20} />
             </a>
@@ -47,7 +47,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/arifprasojo"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-white transition-all hover:-translate-y-1 border border-[var(--color-border)]"
+              className="w-10 h-10 mecha-cut-sm bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-text)] transition-all hover:-translate-y-1 border border-[var(--color-border)]"
             >
               <LinkedinIcon size={20} />
             </a>
@@ -55,7 +55,7 @@ export default function Footer() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=arifprasojo999@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-white transition-all hover:-translate-y-1 border border-[var(--color-border)]"
+              className="w-10 h-10 mecha-cut-sm bg-[var(--color-secondary)] flex items-center justify-center text-[var(--color-text-muted)] hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-text)] transition-all hover:-translate-y-1 border border-[var(--color-border)]"
             >
               <Mail size={20} />
             </a>

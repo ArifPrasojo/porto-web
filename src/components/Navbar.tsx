@@ -6,7 +6,6 @@ import { Menu, X, Search, PlusCircle, Globe, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
-import { useTheme } from "@/lib/ThemeContext";
 import { Language } from "@/lib/translations";
 
 const languages: { code: Language; flag: string; label: string }[] = [
@@ -17,7 +16,6 @@ const languages: { code: Language; flag: string; label: string }[] = [
 
 export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -48,96 +46,103 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-6 left-0 right-0 z-50 px-4 md:px-0 flex justify-center"
+        className="fixed top-2 md:top-4 left-0 right-0 z-50 px-2 md:px-4 flex justify-center"
       >
-        <div
-          className={cn(
-            "flex items-center justify-between w-full max-w-5xl h-16 px-6 md:px-10 rounded-full transition-all duration-300 border border-slate-700/30 shadow-xl",
-            isScrolled
-              ? "bg-[var(--color-secondary)]/90 backdrop-blur-2xl"
-              : "bg-[var(--color-secondary)]/60 backdrop-blur-xl"
-          )}
-        >
+        {/* HUD Navigation Frame */}
+        <div className="relative flex items-center justify-between w-full max-w-6xl h-16 px-4 lg:px-8 z-50">
+          
+          {/* Mecha Background (Separate div to prevent clip-path from hiding dropdowns) */}
+          <div
+            className={cn(
+              "absolute inset-0 mecha-cut border-b-4 border-[var(--color-highlight)] shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-0 transition-all duration-300",
+              isScrolled
+                ? "bg-[var(--color-secondary)]/95 backdrop-blur-2xl"
+                : "bg-[var(--color-secondary)]/80 backdrop-blur-xl"
+            )}
+          />
+
+          {/* Decorative Panel Lines */}
+          <div className="absolute top-0 left-10 w-20 h-[2px] bg-[var(--color-accent)] hidden md:block z-10"></div>
+          <div className="absolute bottom-0 right-10 w-32 h-[2px] bg-[var(--color-danger)] hidden md:block z-10"></div>
+          <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[var(--color-danger)] hidden md:block z-10"></div>
+          
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-primary)] group-hover:border-[var(--color-accent)] transition-colors">
+          <a href="#home" className="flex items-center gap-2 group mr-2 relative z-10">
+            <div className="relative w-8 h-8 overflow-hidden mecha-cut-sm border border-[var(--color-highlight)] bg-[var(--color-primary)] group-hover:border-[var(--color-accent)] transition-colors">
               <Image 
-                src="/logo-v2.png" 
+                src="/gundam_a_logo.png" 
                 alt="ArfPorto Logo" 
                 fill 
-                sizes="40px"
+                sizes="32px"
                 className="object-cover p-1"
               />
             </div>
-            <span className="text-xl font-bold tracking-tighter text-[var(--color-text-main)] hidden sm:block">
+            <span className="text-lg font-bold tracking-tighter text-[var(--color-text-main)] hidden md:block">
               ArfPorto<span className="font-light text-[var(--color-accent)]">.</span>
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden lg:flex gap-6 items-center relative z-10">
             {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
                 whileHover={{ y: -1 }}
-                className="text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors text-sm font-semibold"
+                className="group relative px-2 text-[var(--color-text-muted)] hover:text-white transition-colors text-xs font-bold tracking-[0.15em] uppercase"
               >
+                <span className="opacity-0 group-hover:opacity-100 text-[var(--color-danger)] absolute -left-2 transition-all group-hover:translate-x-1">[</span>
                 {link.name}
+                <span className="opacity-0 group-hover:opacity-100 text-[var(--color-danger)] absolute -right-2 transition-all group-hover:-translate-x-1">]</span>
               </motion.a>
             ))}
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 ml-auto lg:ml-0 relative z-10">
             <motion.a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=arifprasojo999@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-[var(--color-text-main)] text-[var(--color-primary)] rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-lg"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 bg-[var(--color-highlight)] text-black mecha-cut-sm text-xs font-extrabold hover:bg-[var(--color-danger)] hover:text-white transition-all shadow-[2px_2px_0_var(--color-border)] whitespace-nowrap"
             >
-              <PlusCircle size={18} />
+              <PlusCircle size={16} className="animate-pulse" />
               {t.nav.contact}
             </motion.a>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl bg-[var(--color-secondary)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all"
-              aria-label="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+
 
             {/* Language Switcher */}
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center gap-1 text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-all p-2 rounded-xl hover:bg-[var(--color-primary)]/50 group"
+                className="flex items-center gap-1 text-[var(--color-text-main)] transition-all p-2 mecha-cut-sm hover:bg-[var(--color-highlight)] hover:text-black group border border-[var(--color-border)] hover:border-black bg-[var(--color-secondary)] relative z-10"
+                title="Change Language"
               >
                 <div className="flex flex-col items-end leading-none ml-1">
-                  <span className="text-[10px] font-bold tracking-tight opacity-80 group-hover:text-[var(--color-accent)]">{language.toUpperCase()}</span>
+                  <span className="text-[11px] font-extrabold tracking-tight opacity-90">{language.toUpperCase()}</span>
                 </div>
-                <div className="w-[1px] h-3 bg-[var(--color-border)] opacity-50" />
-                <Globe size={14} className="group-hover:rotate-12 transition-transform" />
+                <div className="w-[1px] h-3 bg-current opacity-50" />
+                <Globe size={14} className="group-hover:animate-spin" />
               </button>
+
               <AnimatePresence>
                 {isLangOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute right-0 top-12 bg-[var(--color-secondary)] border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-2xl min-w-[150px] z-50"
+                    className="absolute right-0 top-[120%] bg-[var(--color-secondary)] border border-[var(--color-highlight)] mecha-cut overflow-hidden shadow-2xl min-w-[150px] z-50"
                   >
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
                         onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
                         className={cn(
-                          "flex items-center gap-3 w-full px-4 py-3 text-sm transition-colors hover:bg-[var(--color-primary)]",
-                          language === lang.code ? "text-[var(--color-accent)] font-bold" : "text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]"
+                          "flex items-center gap-3 w-full px-4 py-3 text-sm transition-colors hover:bg-[var(--color-primary)] text-left",
+                          language === lang.code ? "text-[var(--color-highlight)] font-bold bg-[var(--color-primary)]/50" : "text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]"
                         )}
                       >
                         <span className="text-lg">{lang.flag}</span>
@@ -158,7 +163,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-[var(--color-text-main)]"
+              className="lg:hidden text-[var(--color-text-main)]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -173,7 +178,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-20 left-4 right-4 bg-[var(--color-secondary)]/95 backdrop-blur-xl border border-[var(--color-border)] rounded-3xl overflow-hidden md:hidden shadow-2xl"
+              className="absolute top-20 left-4 right-4 bg-[var(--color-secondary)]/95 backdrop-blur-xl border-2 border-[var(--color-border)] mecha-cut overflow-hidden lg:hidden shadow-[8px_8px_0_var(--color-primary)] z-50"
             >
               <div className="flex flex-col p-6 gap-4">
                 {navLinks.map((link, index) => (
@@ -191,7 +196,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-2 flex items-center justify-center gap-2 px-5 py-4 bg-white text-black rounded-2xl font-bold"
+                  className="mt-2 flex items-center justify-center gap-2 px-5 py-4 bg-[var(--color-highlight)] text-black mecha-cut-sm font-bold shadow-[4px_4px_0_var(--color-primary)]"
                 >
                   <PlusCircle size={20} />
                   {t.nav.contact}
@@ -204,7 +209,7 @@ export default function Navbar() {
                       key={lang.code}
                       onClick={() => { setLanguage(lang.code); setIsMobileMenuOpen(false); }}
                       className={cn(
-                        "flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold border transition-all",
+                        "flex-1 flex items-center justify-center gap-2 py-3 mecha-cut-sm text-sm font-bold border transition-all",
                         language === lang.code
                           ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white"
                           : "border-[var(--color-border)] text-slate-400"
@@ -236,7 +241,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.9, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              className="relative w-full max-w-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-[var(--color-secondary)] border-2 border-[var(--color-border)] mecha-cut shadow-[8px_8px_0_var(--color-primary)] overflow-hidden"
             >
               <div className="p-6 flex items-center gap-4 border-b border-[var(--color-border)]">
                 <Search className="text-slate-400" size={24} />
@@ -250,7 +255,7 @@ export default function Navbar() {
                 />
                 <button 
                   onClick={() => setIsSearchOpen(false)}
-                  className="p-2 hover:bg-slate-800 rounded-xl transition-colors text-slate-400 hover:text-white"
+                  className="p-2 hover:bg-[var(--color-primary)] mecha-cut-sm transition-colors text-[var(--color-text-muted)] hover:text-white"
                 >
                   <X size={20} />
                 </button>

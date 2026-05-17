@@ -31,11 +31,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-extrabold text-[var(--color-text-main)] tracking-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--color-text-main)] tracking-tight mb-6"
           >
-            Arif Prasojo <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-blue-300">
-              Web Developer.
+            Arif Prasojo
+            <span className="text-[var(--color-highlight)] gundam-glitch inline-block break-all sm:break-normal">
+              /Web_Developer.
             </span>
           </motion.h1>
 
@@ -56,9 +56,12 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="flex items-center gap-2 px-8 py-4 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-blue-600 transition-all hover:gap-4 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+              className="relative overflow-hidden group flex items-center gap-2 px-8 py-4 bg-[var(--color-accent)] text-white mecha-cut font-bold hover:gap-4 transition-all border-l-4 border-[var(--color-highlight)] shadow-[4px_4px_0_var(--color-border)] hover:translate-x-[-2px] hover:translate-y-[-2px]"
             >
-              {t.hero.cta} <ArrowRight size={18} />
+              {/* Thruster Hover Animation */}
+              <div className="absolute inset-y-0 left-[-100%] w-8 bg-[var(--color-highlight)] skew-x-[-20deg] group-hover:animate-thruster"></div>
+              <span className="relative z-10">{t.hero.cta}</span> 
+              <ArrowRight size={18} className="relative z-10" />
             </a>
           </motion.div>
         </div>
@@ -71,14 +74,14 @@ export default function Hero() {
           className="flex-1 w-full max-w-[280px] sm:max-w-md mx-auto md:max-w-none flex justify-center mt-10 mb-12 md:mt-0 md:mb-0"
         >
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-accent)] to-blue-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
+            {/* Solid Tech Background (No Gradient) */}
+            <div className="absolute inset-0 bg-[var(--color-accent)] mecha-cut opacity-30 animate-pulse"></div>
 
             {/* Inner Ring */}
-            <div className="absolute inset-2 bg-[var(--color-secondary)] rounded-full border border-[var(--color-border)]"></div>
+            <div className="absolute inset-2 bg-[var(--color-secondary)] mecha-cut border border-[var(--color-border)] scanline"></div>
 
             {/* Image Container */}
-            <div className="absolute inset-4 overflow-hidden rounded-full border-4 border-[var(--color-primary)] shadow-2xl">
+            <div className="absolute inset-4 overflow-hidden mecha-cut border-4 border-[var(--color-primary)] shadow-2xl">
               <Image
                 src="/img/profile.JPG"
                 alt="Foto Profil Arif Prasojo"
@@ -90,14 +93,31 @@ export default function Hero() {
             </div>
 
             {/* Decoration Dashed Ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-dashed border-slate-600 animate-[spin_20s_linear_infinite]"></div>
+            <div className="absolute inset-0 mecha-cut border-2 border-dashed border-[var(--color-highlight)] animate-pulse"></div>
 
-            {/* Floating Badge (Optional touch of expert animation) */}
+            {/* Flying Mecha Funnel (Drone) */}
+            <motion.div
+              animate={{ 
+                x: [-20, 20, -10, 30, -20], 
+                y: [-20, -40, 10, -30, -20],
+                rotate: [0, 15, -15, 10, 0]
+              }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="absolute -top-10 -left-10 w-8 h-8 bg-[var(--color-danger)] mecha-cut-sm shadow-[0_0_15px_var(--color-danger)] border border-white z-50 flex items-center justify-center"
+            >
+              <div className="w-2 h-2 bg-white animate-ping"></div>
+            </motion.div>
+
+            {/* Floating HUD Badge */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 bg-[var(--color-primary)] p-3 rounded-2xl border border-[var(--color-border)] shadow-xl"
+              className="absolute -bottom-4 -right-4 bg-[var(--color-secondary)] p-3 mecha-cut-sm mecha-border border-b-4 border-b-[var(--color-highlight)] shadow-[4px_4px_0_var(--color-border)] text-center min-w-[120px]"
             >
+              <span className="text-xl font-black text-[var(--color-text-main)] block mb-1">
+                SYSTEM<span className="text-[var(--color-danger)] animate-pulse">_</span>
+              </span>
+              <span className="text-xs text-[var(--color-accent)] uppercase tracking-widest font-bold">ONLINE</span>
             </motion.div>
           </div>
         </motion.div>

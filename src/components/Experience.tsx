@@ -30,7 +30,7 @@ export default function Experience() {
           {/* Work Experience */}
           <div>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-[var(--color-accent)]/20 rounded-lg text-[var(--color-accent)]">
+              <div className="p-3 bg-[var(--color-accent)]/20 mecha-cut text-[var(--color-accent)]">
                 <Briefcase size={24} />
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.workTitle}</h3>
@@ -46,14 +46,14 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="relative flex items-start gap-6 group"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[var(--color-primary)] bg-[var(--color-secondary)] text-[var(--color-accent)] shadow shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors z-10 mt-1">
-                    <div className="w-2.5 h-2.5 bg-current rounded-full" />
+                  <div className="flex items-center justify-center w-8 h-8 mecha-cut-sm border-2 border-[var(--color-highlight)] bg-[var(--color-secondary)] text-[var(--color-accent)] shadow shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] transition-colors z-10 mt-1">
+                    <div className="w-2.5 h-2.5 bg-current" />
                   </div>
                   
-                  <div className="flex-1 p-6 rounded-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-colors">
+                  <div className="flex-1 p-6 mecha-cut mecha-border bg-[var(--color-secondary)] hover:border-[var(--color-highlight)] transition-colors">
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
                       <h4 className="font-bold text-lg text-[var(--color-text-main)]">{exp.role}</h4>
-                      <span className="text-xs font-medium text-[var(--color-accent)] bg-blue-500/10 px-3 py-1 rounded-full w-fit">
+                      <span className="text-xs font-medium text-[var(--color-accent)] border border-[var(--color-accent)] px-3 py-1 mecha-cut-sm w-fit">
                         {exp.period}
                       </span>
                     </div>
@@ -72,7 +72,7 @@ export default function Experience() {
           {/* Org Experience */}
           <div>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-purple-500/20 rounded-lg text-purple-400">
+              <div className="p-3 bg-[var(--color-danger)]/20 mecha-cut text-[var(--color-danger)]">
                 <Users size={24} />
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.orgTitle}</h3>
@@ -88,14 +88,14 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="relative flex items-start gap-6 group"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[var(--color-primary)] bg-[var(--color-secondary)] text-purple-400 shadow shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-colors z-10 mt-1">
-                    <div className="w-2.5 h-2.5 bg-current rounded-full" />
+                  <div className="flex items-center justify-center w-8 h-8 mecha-cut-sm border-2 border-[var(--color-danger)] bg-[var(--color-secondary)] text-[var(--color-danger)] shadow shrink-0 group-hover:bg-[var(--color-danger)] group-hover:text-white transition-colors z-10 mt-1">
+                    <div className="w-2.5 h-2.5 bg-current" />
                   </div>
                   
-                  <div className="flex-1 p-6 rounded-2xl bg-[var(--color-secondary)] border border-slate-800 hover:border-purple-500/50 transition-colors">
+                  <div className="flex-1 p-6 mecha-cut border border-[var(--color-border)] border-r-4 border-r-[var(--color-danger)] bg-[var(--color-secondary)] hover:border-[var(--color-danger)] transition-colors">
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
                       <h4 className="font-bold text-lg text-[var(--color-text-main)]">{exp.role}</h4>
-                      <span className="text-xs font-medium text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full w-fit">
+                      <span className="text-xs font-medium text-[var(--color-danger)] border border-[var(--color-danger)] px-3 py-1 mecha-cut-sm w-fit">
                         {exp.period}
                       </span>
                     </div>

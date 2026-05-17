@@ -123,7 +123,7 @@ export default function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
             {t.projects.title}
           </h2>
-          <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
+          <div className="w-20 h-2 bg-[var(--color-highlight)] mx-auto mb-6 mecha-cut"></div>
           
           {/* Tab Filter */}
           <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -136,9 +136,9 @@ export default function Projects() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-bold transition-all border",
+                  "px-6 py-2 mecha-cut-sm text-sm font-bold transition-all border",
                   activeTab === tab.id 
-                    ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white shadow-lg shadow-blue-500/20" 
+                    ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-[var(--color-accent-text)] shadow-lg" 
                     : "bg-[var(--color-secondary)] border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] hover:border-[var(--color-accent)]/30"
                 )}
               >
@@ -158,12 +158,11 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="bg-[var(--color-secondary)] rounded-2xl overflow-hidden border border-[var(--color-border)] group hover:border-[var(--color-accent)]/50 transition-all hover:shadow-2xl relative"
+                className="bg-[var(--color-secondary)] mecha-cut overflow-hidden mecha-border border-b-4 border-b-[var(--color-highlight)] group hover:border-[var(--color-accent)] transition-all hover:shadow-2xl relative"
                 suppressHydrationWarning
               >
-                {/* Coming Soon Badge */}
                 {project.isComingSoon && (
-                  <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg" suppressHydrationWarning>
+                  <div className="absolute top-4 right-4 z-20 bg-[var(--color-danger)] text-white text-[10px] font-bold px-2 py-1 mecha-cut-sm shadow-lg" suppressHydrationWarning>
                     {t.projects.comingSoon}
                   </div>
                 )}
@@ -195,7 +194,7 @@ export default function Projects() {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6" suppressHydrationWarning>
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-2 py-1 mecha-cut-sm border border-[var(--color-accent)]/30">
                         {tech}
                       </span>
                     ))}

@@ -29,6 +29,15 @@ export default function Preloader() {
 
   if (!mounted) return null;
 
+  const bootingTexts = [
+    "INITIATING GUNDAM OS...",
+    "CHECKING REACTOR...",
+    "GN DRIVE [ OK ]",
+    "CALIBRATING SENSORS...",
+    "HUD SYSTEMS [ ONLINE ]",
+    "ALL SYSTEMS GO."
+  ];
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -38,83 +47,95 @@ export default function Preloader() {
             y: "-100%",
             transition: { duration: 1, ease: [0.76, 0, 0.24, 1] } 
           }}
-          className="fixed inset-0 z-[100] bg-[#0f172a] flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[100] bg-[#0A0B10] flex flex-col items-center justify-center font-mono"
         >
-          {/* Background decoration */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[150px]" />
+          {/* Scanline overlay */}
+          <div className="absolute inset-0 scanline pointer-events-none z-0"></div>
+          
+          {/* Top Left OS Label */}
+          <div className="absolute top-8 left-8 text-[var(--color-danger)] text-xs font-bold tracking-[0.3em] gundam-glitch opacity-80 hidden md:block">
+            WARNING: PROTOTYPE OS V2.0
+          </div>
+          
+          {/* Top Right System Status */}
+          <div className="absolute top-8 right-8 text-[var(--color-highlight)] text-xs font-bold tracking-widest text-right hidden md:block">
+            <span className="block mb-1">SYSTEM: STANDBY</span>
+            <span className="block opacity-50">SYNC RATE: {count}%</span>
           </div>
 
-          <div className="relative flex flex-col items-center">
-            {/* Logo Animation */}
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0, rotate: -20 }}
-              animate={{ scale: 1, opacity: 1, rotate: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mb-10"
-            >
-              <div className="relative w-24 h-24 overflow-hidden rounded-3xl border-2 border-blue-500/30 bg-slate-900 shadow-[0_0_50px_rgba(59,130,246,0.3)]">
-                <Image 
-                  src="/logo-v2.png" 
-                  alt="Logo" 
-                  fill 
-                  sizes="96px"
-                  className="object-cover p-1"
+          <div className="relative flex flex-col items-center w-full max-w-lg px-6 z-10">
+            
+            {/* Main HUD Frame */}
+            <div className="w-full mecha-cut mecha-border border-b-4 border-b-[var(--color-accent)] bg-[var(--color-secondary)] p-8 relative shadow-2xl">
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-highlight)]"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-danger)]"></div>
+
+              {/* Logo Box */}
+              <div className="flex justify-center mb-6">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  <div className="relative w-20 h-20 overflow-hidden mecha-cut-sm border-2 border-[var(--color-accent)] bg-[var(--color-primary)] shadow-[0_0_20px_var(--color-accent)]">
+                    <Image 
+                      src="/gundam_a_logo.png" 
+                      alt="Logo" 
+                      fill 
+                      sizes="80px"
+                      className="object-cover p-2"
+                    />
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Brand Name */}
+              <div className="flex justify-center mb-6">
+                <span className="text-2xl md:text-3xl font-black tracking-[0.2em] text-[var(--color-text-main)] uppercase">
+                  ArfPorto<span className="text-[var(--color-danger)] animate-pulse">_</span>
+                </span>
+              </div>
+
+              {/* Loading Logs */}
+              <div className="h-20 mb-6 flex flex-col justify-end items-center overflow-hidden w-full text-center">
+                {bootingTexts.map((text, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ 
+                      opacity: count > (i * 15) ? 1 : 0, 
+                      height: count > (i * 15) ? "auto" : 0 
+                    }}
+                    className={`text-xs md:text-sm font-bold tracking-widest ${
+                      text.includes("[ OK ]") || text.includes("[ ONLINE ]") || text.includes("GO.") 
+                        ? "text-[var(--color-accent)]" 
+                        : "text-[var(--color-text-muted)]"
+                    }`}
+                  >
+                    {text}
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Progress Bar Container */}
+              <div className="w-full h-2 bg-[var(--color-primary)] mecha-cut-sm overflow-hidden border border-[var(--color-border)] relative">
+                {/* Tick marks behind progress */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIj48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')] z-0"></div>
+                
+                <motion.div 
+                  className="h-full bg-[var(--color-highlight)] relative z-10"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${count}%` }}
+                  transition={{ duration: 0.1 }}
                 />
               </div>
-            </motion.div>
-
-            {/* Brand Name with Typing Effect */}
-            <div className="flex mb-3">
-              {brandName.split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 0.1,
-                    delay: 0.1 + index * 0.1,
-                  }}
-                  className={`text-3xl md:text-4xl font-black tracking-tighter ${
-                    char === "." ? "text-blue-500" : "text-white"
-                  }`}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-
-            {/* Subtext and Counter */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="flex items-center gap-4 text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em]"
-            >
-              <span>Initializing</span>
-              <span className="text-slate-700 w-12 h-px bg-slate-800 block"></span>
-              <span className="text-blue-400 min-w-[3ch]">{count}%</span>
-            </motion.div>
-
-            {/* Progress Bar Container */}
-            <div className="mt-10 w-64 h-[3px] bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/30">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
-                initial={{ width: 0 }}
-                animate={{ width: `${count}%` }}
-                transition={{ ease: "linear" }}
-              />
+              <div className="flex justify-between w-full mt-2 text-[10px] font-bold text-[var(--color-text-muted)]">
+                <span>BOOT SEQ</span>
+                <span className="text-[var(--color-highlight)]">{count}%</span>
+              </div>
             </div>
           </div>
-
-          {/* Decorative Cursor */}
-          <motion.div
-            animate={{ opacity: [1, 0] }}
-            transition={{ repeat: Infinity, duration: 0.8 }}
-            className="absolute bottom-20 text-blue-500 font-mono text-xl"
-          >
-            _
-          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

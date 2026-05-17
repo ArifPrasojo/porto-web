@@ -29,7 +29,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
               {t.about.title}
             </h2>
-            <div className="w-20 h-1 bg-[var(--color-accent)] mb-8"></div>
+            <div className="w-20 h-2 bg-[var(--color-highlight)] mb-8 mecha-cut"></div>
             
             <p className="text-[var(--color-text-muted)] text-lg leading-relaxed mb-6">
               {t.about.bio1}
@@ -48,9 +48,9 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-all hover:shadow-xl shadow-sm group"
+                className="p-6 mecha-cut mecha-border bg-[var(--color-secondary)] hover:border-[var(--color-highlight)] transition-all hover:shadow-xl shadow-sm group"
               >
-                <div className="mb-4 bg-[var(--color-accent)]/10 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="mb-4 bg-[var(--color-accent)]/10 w-16 h-16 mecha-cut flex items-center justify-center group-hover:bg-[var(--color-highlight)]/20 transition-colors">
                   {featureIcons[index]}
                 </div>
                 <h3 className="text-xl font-semibold text-[var(--color-text-main)] mb-2">
