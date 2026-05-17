@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root, .dark {
-  --color-primary: #0A0B10; /* Space Black */
-  --color-secondary: #1B1C26; /* Deep dark blue-grey for cards */
-  --color-tertiary: #2C2D3A; /* Slightly lighter for hovers */
-  --color-accent: #2E51B2; /* Royal Blue */
-  --color-accent-hover: #1D377A;
-  --color-highlight: #FEF057; /* Bright Yellow */
-  --color-danger: #FA3A3D; /* Bright Red */
+  --color-primary: #050814; /* Deep Space Black with a hint of blue */
+  --color-secondary: #0D162B; /* Dark Gundam Blue for cards/panels */
+  --color-tertiary: #1A2849; /* Lighter blue-grey for hovers */
+  --color-accent: #005CFA; /* Vibrant Classic Gundam Blue */
+  --color-accent-hover: #0045B8;
+  --color-highlight: #FFCC00; /* Classic Gundam Yellow */
+  --color-danger: #E60012; /* Classic Gundam Red */
   --color-text-main: #FFFFFF; /* Pure White */
   --color-text-muted: #828393; /* Muted slate gray */
   --color-border: #5A5B69; /* Dark Slate Gray from palette */
   --background: var(--color-primary);
   --foreground: var(--color-text-main);
-  --color-grid: rgba(46, 81, 178, 0.15); /* Blue grid */
+  --color-grid: rgba(0, 92, 250, 0.15); /* Vibrant Blue grid */
 }
 
 @theme inline {

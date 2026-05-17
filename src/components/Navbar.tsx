@@ -61,24 +61,18 @@ export default function Navbar() {
             )}
           />
 
-          {/* Decorative Panel Lines */}
-          <div className="absolute top-0 left-10 w-20 h-[2px] bg-[var(--color-accent)] hidden md:block z-10"></div>
-          <div className="absolute bottom-0 right-10 w-32 h-[2px] bg-[var(--color-danger)] hidden md:block z-10"></div>
-          <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[var(--color-danger)] hidden md:block z-10"></div>
-          
-          {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group mr-2 relative z-10">
-            <div className="relative w-8 h-8 overflow-hidden mecha-cut-sm border border-[var(--color-highlight)] bg-[var(--color-primary)] group-hover:border-[var(--color-accent)] transition-colors">
+            <div className="relative w-8 h-8 group-hover:scale-110 transition-transform">
               <Image 
                 src="/gundam_a_logo.png" 
                 alt="ArfPorto Logo" 
                 fill 
                 sizes="32px"
-                className="object-cover p-1"
+                className="object-contain mix-blend-screen"
               />
             </div>
-            <span className="text-lg font-bold tracking-tighter text-[var(--color-text-main)] hidden md:block">
-              ArfPorto<span className="font-light text-[var(--color-accent)]">.</span>
+            <span className="text-lg md:text-xl font-black tracking-tighter text-[var(--color-accent)] uppercase">
+              ArfPorto<span className="font-light text-[var(--color-highlight)]">.</span>
             </span>
           </a>
 

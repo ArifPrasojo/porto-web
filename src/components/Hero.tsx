@@ -10,8 +10,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-22 pb-20 md:pt-16 md:pb-0 overflow-hidden">
       {/* Background Ornaments */}
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse" />
-      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-blue-400 rounded-full mix-blend-screen filter blur-[128px] opacity-20" />
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-pulse" />
+      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-40" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-12 mt-10 md:mt-0">
 
@@ -75,13 +75,13 @@ export default function Hero() {
         >
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
             {/* Solid Tech Background (No Gradient) */}
-            <div className="absolute inset-0 bg-[var(--color-accent)] mecha-cut opacity-30 animate-pulse"></div>
+            <div className="absolute inset-0 bg-[var(--color-accent)] mecha-cut opacity-50 shadow-[0_0_30px_var(--color-accent)] animate-pulse"></div>
 
             {/* Inner Ring */}
-            <div className="absolute inset-2 bg-[var(--color-secondary)] mecha-cut border border-[var(--color-border)] scanline"></div>
+            <div className="absolute inset-2 bg-[var(--color-secondary)] mecha-cut scanline"></div>
 
             {/* Image Container */}
-            <div className="absolute inset-4 overflow-hidden mecha-cut border-4 border-[var(--color-primary)] shadow-2xl">
+            <div className="absolute inset-4 overflow-hidden mecha-cut border-4 border-[var(--color-accent)] shadow-[0_0_20px_var(--color-accent)]">
               <Image
                 src="/img/profile.JPG"
                 alt="Foto Profil Arif Prasojo"

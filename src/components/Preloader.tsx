@@ -78,13 +78,13 @@ export default function Preloader() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                  <div className="relative w-20 h-20 overflow-hidden mecha-cut-sm border-2 border-[var(--color-accent)] bg-[var(--color-primary)] shadow-[0_0_20px_var(--color-accent)]">
+                  <div className="relative w-24 h-24">
                     <Image 
                       src="/gundam_a_logo.png" 
                       alt="Logo" 
                       fill 
-                      sizes="80px"
-                      className="object-cover p-2"
+                      sizes="96px"
+                      className="object-contain mix-blend-screen"
                     />
                   </div>
                 </motion.div>

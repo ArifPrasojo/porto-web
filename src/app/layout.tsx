@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ArfPorto | Arif Prasojo",
   description: "Portofolio profesional Arif Prasojo dengan UI modern dan animasi expert.",
+  icons: {
+    icon: "/gundam_a_logo.png",
+  },
 };
 
 export default function RootLayout({
