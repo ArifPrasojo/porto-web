@@ -84,7 +84,8 @@ export default function Preloader() {
                       alt="Logo" 
                       fill 
                       sizes="96px"
-                      className="object-contain mix-blend-screen"
+                      className="object-contain"
+                      unoptimized
                     />
                   </div>
                 </motion.div>

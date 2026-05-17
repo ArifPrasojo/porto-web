@@ -68,7 +68,8 @@ export default function Navbar() {
                 alt="ArfPorto Logo" 
                 fill 
                 sizes="32px"
-                className="object-contain mix-blend-screen"
+                className="object-contain"
+                unoptimized
               />
             </div>
             <span className="text-lg md:text-xl font-black tracking-tighter text-[var(--color-accent)] uppercase">
