@@ -104,6 +104,11 @@ div, section, img, span, p {
   border-radius: 0 !important;
 }
 
+/* Exception for explicitly circular elements (like planets) */
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
 /* Scanline Animation */
 .scanline {
   position: relative;

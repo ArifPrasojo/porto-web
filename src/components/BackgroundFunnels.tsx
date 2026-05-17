@@ -73,8 +73,39 @@ const Funnel = ({
         <motion.div 
           animate={{ opacity: [0, 0, 1, 1, 0, 0], scaleX: [0, 0, 1, 1, 0, 0] }}
           transition={{ duration: 3, repeat: Infinity, delay: delay + 1 }}
-          className="absolute left-[80%] h-[3px] w-48 md:w-80 bg-[var(--color-danger)] shadow-[0_0_20px_var(--color-danger)] origin-left z-0"
+          className="absolute left-[80%] h-[4px] w-56 md:w-96 bg-[var(--color-danger)] shadow-[0_0_20px_var(--color-danger)] origin-left z-0"
         />
+
+        {/* Enemy Comet / Asteroid */}
+        <motion.div
+          animate={{
+            x: [600, 400, 200, 220, 220, 600], // Approaches, hits at x=200, gets blown back, resets
+            y: [-200, -100, 0, 20, 20, -200], // Comes diagonally from top right
+            opacity: [0, 1, 1, 0, 0, 0], // Visible until explosion point
+            scale: [0.5, 0.8, 1, 1.5, 0, 0], // Grows as it gets closer, expands on hit, vanishes
+            rotate: [0, -90, -180, -250, 0, 0] // Tumbling rotation
+          }}
+          transition={{ duration: 3, repeat: Infinity, delay: delay + 1 }}
+          className="absolute left-[80%] z-20 flex items-center justify-center pointer-events-none"
+        >
+          {/* Comet Rock Core */}
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-stone-400 to-stone-800 shadow-[inset_-3px_-3px_10px_rgba(0,0,0,0.6)] relative overflow-hidden">
+            {/* Craters */}
+            <div className="absolute top-2 left-2 w-3 h-2 rounded-full bg-stone-900/40" />
+            <div className="absolute bottom-2 right-3 w-4 h-3 rounded-full bg-stone-900/30" />
+            <div className="absolute top-4 right-1 w-2 h-2 rounded-full bg-stone-900/50" />
+          </div>
+
+          {/* Comet Fire Tail */}
+          <div className="absolute top-1/2 left-full -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-orange-500/80 to-transparent blur-md -z-10 rounded-full" />
+
+          {/* Explosion Particle Burst (Syncs with the exact hit frame) */}
+          <motion.div 
+            animate={{ opacity: [0, 0, 0, 1, 0, 0], scale: [0, 0, 0, 2.5, 0, 0] }}
+            transition={{ duration: 3, repeat: Infinity, delay: delay + 1 }}
+            className="absolute inset-0 bg-yellow-400 shadow-[0_0_40px_var(--color-danger)] rounded-full mix-blend-screen"
+          />
+        </motion.div>
       </div>
     </motion.div>
   );
