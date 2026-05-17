@@ -79,6 +79,7 @@ export const translations = {
       liveDemo: "Live Demo",
       list: [
         { title: "El Strategis", desc: "Ekosistem manajemen keuangan pribadi (Personal Finance Management) yang dirancang untuk membantu Anda mencatat transaksi harian, mengelola anggaran, dan mencapai tujuan finansial (Wishlist) dengan antarmuka yang modern dan wawasan yang sangat jernih." },
+        { title: "El-Fundamental", desc: "Platform pembelajaran interaktif bergaya Mecha untuk Python dan JavaScript. Latih logika Anda dan selesaikan misi coding taktis untuk meningkatkan kemampuan software engineering." },
         { title: "AI Summarizer App", desc: "Aplikasi web untuk merangkum dokumen panjang menggunakan AI (Gemini API)." },
         { title: "E-Commerce Dashboard", desc: "Dashboard admin modern untuk mengelola produk, pesanan, dan analitik toko online." },
         { title: "Sistem Manajemen Kedai Kopi", desc: "Aplikasi Point of Sale (POS) untuk kedai kopi dengan fitur manajemen stok dan kasir." },
@@ -178,6 +179,7 @@ export const translations = {
       liveDemo: "Live Demo",
       list: [
         { title: "El Strategis", desc: "Personal Finance Management ecosystem designed to help you track daily transactions, manage budgets, and achieve financial goals (Wishlist) with a modern interface and crystal-clear insights." },
+        { title: "El-Fundamental", desc: "Mecha-styled interactive learning platform for Python and JavaScript. Train your logic and complete tactical coding missions to level up your software engineering skills." },
         { title: "AI Summarizer App", desc: "Web application to summarize long documents using AI (Gemini API)." },
         { title: "E-Commerce Dashboard", desc: "Modern admin dashboard to manage products, orders, and store analytics." },
         { title: "Coffee Shop Management System", desc: "Point of Sale (POS) application for coffee shops with stock and cashier management features." },
@@ -277,6 +279,7 @@ export const translations = {
       liveDemo: "デモ",
       list: [
         { title: "El Strategis", desc: "現代的なインターフェースと非常に明確なインサイトにより、日々の取引の記録、予算の管理、および財務目標（ウィッシュリスト）の達成を支援するように設計されたパーソナルファイナンス管理エコシステム。" },
+        { title: "El-Fundamental", desc: "PythonとJavaScript向けのメカスタイルのインタラクティブ学習プラットフォーム。ロジックを鍛え、戦術的なコーディングミッションを完了して、ソフトウェアエンジニアリングのスキルをレベルアップさせましょう。" },
         { title: "AI 要約アプリ", desc: "AI (Gemini API) を使用して長いドキュメントを要約するウェブアプリケーション。" },
         { title: "Eコマースダッシュボード", desc: "製品、注文、店舗分析を管理するためのモダンなアドミンダッシュボード。" },
         { title: "コーヒーショップ管理システム", desc: "在庫およびレジ管理機能を備えたコーヒーショップ向けのPOSアプリケーション。" },

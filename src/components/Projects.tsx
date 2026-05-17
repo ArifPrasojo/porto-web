@@ -23,6 +23,14 @@ const projectsData = [
     isComingSoon: false,
   },
   {
+    tech: ["React", "TypeScript", "Tailwind CSS", "Monaco Editor"],
+    category: "software",
+    github: "https://github.com/ArifPrasojo/el-fundamental.git",
+    demo: "https://el-fundamental.vercel.app/",
+    image: "/img/elfundamental.png",
+    isComingSoon: false,
+  },
+  {
     tech: ["React", "Node.js", "Gemini AI"],
     category: "software",
     github: "https://github.com/ArifPrasojo/summairaze-AI.git",
