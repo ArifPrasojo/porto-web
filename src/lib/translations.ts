@@ -97,6 +97,14 @@ export const translations = {
         { title: "Redesain UI TechNova", desc: "Website sistem yang menjelaskan atau memperkenalkan layanan yang tersedia untuk menyelesaikan masalah terkait Teknologi." },
         { title: "Proyek Misteri", desc: "Proyek baru sedang dalam tahap pengembangan dan desain. Nantikan pembaruan selanjutnya!" },
       ],
+      alert: {
+        title: "PROTOKOL PENDUKUNG: DETEKSI DEMO",
+        demoComingSoon: "Demo langsung (Live Demo) untuk proyek ini sedang dalam tahap pengembangan.",
+        hasGithub: "Namun, Anda dapat memeriksa kode sumber dan dokumentasi teknis di GitHub.",
+        noGithub: "Saat ini repositori GitHub dan demo belum dipublikasikan untuk proyek ini.",
+        btnGithub: "Buka Dokumentasi GitHub",
+        btnClose: "Tutup Protokol",
+      },
     },
     footer: {
       description: "UI Designer & Web Developer yang bersemangat membangun produk digital yang indah dan fungsional.",
@@ -204,6 +212,14 @@ export const translations = {
         { title: "TechNova UI Redesign", desc: "System website explaining or introducing available services to solve technology-related problems." },
         { title: "Mystery Project", desc: "A new project is currently in the development and design phase. Stay tuned for updates!" },
       ],
+      alert: {
+        title: "SUPPORT PROTOCOL: DEMO STATUS",
+        demoComingSoon: "The Live Demo for this project is currently under development.",
+        hasGithub: "However, you can examine the source code and technical documentation on GitHub.",
+        noGithub: "The GitHub repository and live demo are not yet public for this project.",
+        btnGithub: "Open GitHub Documentation",
+        btnClose: "Close Protocol",
+      },
     },
     footer: {
       description: "UI Designer & Web Developer passionate about building beautiful and functional digital products.",
@@ -311,6 +327,14 @@ export const translations = {
         { title: "TechNova UIの再設計", desc: "技術関連の問題を解決するための利用可能なサービスを説明または紹介するシステムウェブサイト。" },
         { title: "ミステリープロジェクト", desc: "新しいプロジェクトは現在開発および設計段階にあります。今後の更新にご期待ください！" },
       ],
+      alert: {
+        title: "サポートプロトコル：デモステータス",
+        demoComingSoon: "このプロジェクトのライブデモは現在開発中です。",
+        hasGithub: "ただし、ソースコードと技術ドキュメントはGitHubで確認できます。",
+        noGithub: "このプロジェクトのGitHubリポジトリとデモはまだ公開されていません。",
+        btnGithub: "GitHubドキュメントを開く",
+        btnClose: "プロトコルを閉じる",
+      },
     },
     footer: {
       description: "美しく機能的なデジタル製品の構築に情熱を持つUIデザイナー & Webデベロッパー。",

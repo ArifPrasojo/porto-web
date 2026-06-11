@@ -107,6 +107,10 @@ const projectsData = [
 export default function Projects() {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("all");
+  const [activeAlertProject, setActiveAlertProject] = useState<{
+    title: string;
+    github: string;
+  } | null>(null);
 
   const projects = projectsData.map((p, i) => ({
     ...p,
@@ -220,12 +224,21 @@ export default function Projects() {
                             <GithubIcon size={18} /> {t.projects.code}
                           </a>
                         )}
-                        <a
-                          href={project.demo}
-                          className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-                        >
-                          <ExternalLink size={18} /> {t.projects.liveDemo}
-                        </a>
+                        {project.demo !== "#" ? (
+                          <a
+                            href={project.demo}
+                            className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+                          >
+                            <ExternalLink size={18} /> {t.projects.liveDemo}
+                          </a>
+                        ) : (
+                          <button
+                            onClick={() => setActiveAlertProject({ title: project.title, github: project.github })}
+                            className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-highlight)] transition-colors cursor-pointer"
+                          >
+                            <ExternalLink size={18} /> {t.projects.liveDemo}
+                          </button>
+                        )}
                       </>
                     ) : (
                       <span className="text-xs text-slate-500 italic">{t.projects.comingSoonDetail}</span>
@@ -237,6 +250,115 @@ export default function Projects() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Custom Alert Modal */}
+      <AnimatePresence>
+        {activeAlertProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveAlertProject(null)}
+              className="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
+            />
+            
+            {/* Modal Body */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="bg-[var(--color-secondary)] border border-[var(--color-border)] mecha-border border-b-4 border-b-[var(--color-highlight)] max-w-lg w-full relative z-10 overflow-hidden scanline shadow-2xl"
+            >
+              {/* Mecha status bar */}
+              <div className="bg-[var(--color-tertiary)] border-b border-[var(--color-border)] px-4 py-2.5 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-[var(--color-danger)] rounded-full animate-ping" />
+                  <span className="w-2.5 h-2.5 bg-[var(--color-danger)] rounded-full absolute" />
+                  <span className="text-[10px] font-mono tracking-widest text-[var(--color-danger)] font-bold">
+                    SYSTEM_PROTOCOL // OFFLINE_ALERT
+                  </span>
+                </div>
+                <button
+                  onClick={() => setActiveAlertProject(null)}
+                  className="text-[var(--color-text-muted)] hover:text-[var(--color-danger)] transition-colors font-mono text-sm cursor-pointer"
+                >
+                  [ X ]
+                </button>
+              </div>
+
+              {/* Main Content */}
+              <div className="p-6 md:p-8 flex flex-col gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[var(--color-danger)]/10 border border-[var(--color-danger)]/30 text-[var(--color-danger)] shrink-0 mecha-cut-sm">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                      <line x1="12" y1="9" x2="12" y2="13" />
+                      <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-xs font-mono text-[var(--color-highlight)] tracking-wider">
+                      {t.projects.alert.title}
+                    </span>
+                    <h3 className="text-xl font-extrabold text-[var(--color-text-main)] tracking-wide font-cyberform">
+                      {activeAlertProject.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="border-y border-[var(--color-border)]/50 py-4 flex flex-col gap-3">
+                  <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
+                    {t.projects.alert.demoComingSoon}
+                  </p>
+                  
+                  {activeAlertProject.github !== "#" ? (
+                    <p className="text-xs text-[var(--color-text-muted)] leading-relaxed font-mono">
+                      {t.projects.alert.hasGithub}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-[var(--color-text-muted)] leading-relaxed font-mono">
+                      {t.projects.alert.noGithub}
+                    </p>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {activeAlertProject.github !== "#" && (
+                    <a
+                      href={activeAlertProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-xs font-bold transition-all border border-[var(--color-accent)] hover:shadow-[0_0_15px_rgba(0,92,250,0.4)] mecha-cut-sm text-center"
+                    >
+                      <GithubIcon size={16} />
+                      {t.projects.alert.btnGithub}
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setActiveAlertProject(null)}
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-tertiary)] text-[var(--color-text-main)] border border-[var(--color-border)] text-xs font-bold transition-all mecha-cut-sm cursor-pointer"
+                  >
+                    {t.projects.alert.btnClose}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
