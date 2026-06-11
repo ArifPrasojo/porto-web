@@ -47,12 +47,12 @@ const projectsData = [
     isComingSoon: true,
   },
   {
-    tech: ["Laravel", "Tailwind CSS", "MySQL"],
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Prisma", "PostgreSQL", "NextAuth", "Recharts"],
     category: "software",
-    github: "#",
+    github: "https://github.com/ArifPrasojo/el-kasir",
     demo: "#",
-    image: "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop",
-    isComingSoon: true,
+    image: "/img/elkasir.png",
+    isComingSoon: false,
   },
   {
     tech: ["Figma"],

@@ -31,7 +31,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--color-text-main)] tracking-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[var(--color-text-main)] tracking-tight mb-6 font-cyberform"
           >
             Arif Prasojo
             <span className="text-[var(--color-highlight)] gundam-glitch inline-block break-all sm:break-normal">
@@ -43,10 +43,75 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-[var(--color-text-muted)] mb-10 max-w-2xl leading-relaxed mx-auto md:mx-0"
+            className="text-lg md:text-xl text-[var(--color-text-muted)] mb-8 max-w-2xl leading-relaxed mx-auto md:mx-0"
           >
             {t.hero.description}
           </motion.p>
+
+          {/* Availability Status HUD */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="mb-8 border border-[var(--color-border)] bg-[var(--color-secondary)]/50 p-4 mecha-cut border-l-4 border-l-[var(--color-accent)] max-w-xl mx-auto md:mx-0 text-left relative overflow-hidden"
+          >
+            {/* Top scanning animation line */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent animate-pulse" />
+            
+            <div className="flex items-center justify-between mb-3 border-b border-[var(--color-border)]/30 pb-2">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)]"></span>
+                </span>
+                <span className="text-xs font-black tracking-widest text-[var(--color-accent)] uppercase">
+                  {t.hero.statusTitle}
+                </span>
+              </div>
+              <span className="text-[9px] text-[var(--color-highlight)] font-mono tracking-widest animate-pulse">ACTIVE_MODE</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* Card 1: Open to Work */}
+              <div className="p-2.5 bg-[var(--color-primary)]/40 border border-[var(--color-border)]/40 hover:border-[var(--color-accent)] transition-all mecha-cut-sm group cursor-help">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
+                </div>
+                <div className="text-xs font-black text-white group-hover:text-[var(--color-accent)] transition-colors">
+                  {t.hero.statusOpenToWork}
+                </div>
+                <div className="text-[9px] text-[var(--color-text-muted)] mt-1 font-mono leading-tight">
+                  {t.hero.statusOpenToWorkSub}
+                </div>
+              </div>
+
+              {/* Card 2: Open to Problem-Based */}
+              <div className="p-2.5 bg-[var(--color-primary)]/40 border border-[var(--color-border)]/40 hover:border-[var(--color-highlight)] transition-all mecha-cut-sm group cursor-help">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="w-2 h-2 rounded-full bg-[var(--color-highlight)] animate-pulse shadow-[0_0_8px_#FFCC00]" />
+                </div>
+                <div className="text-xs font-black text-white group-hover:text-[var(--color-highlight)] transition-colors">
+                  {t.hero.statusProjectBased}
+                </div>
+                <div className="text-[9px] text-[var(--color-text-muted)] mt-1 font-mono leading-tight">
+                  {t.hero.statusProjectBasedSub}
+                </div>
+              </div>
+
+              {/* Card 3: Open to Create Porto */}
+              <div className="p-2.5 bg-[var(--color-primary)]/40 border border-[var(--color-border)]/40 hover:border-[var(--color-danger)] transition-all mecha-cut-sm group cursor-help">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="w-2 h-2 rounded-full bg-[var(--color-danger)] animate-pulse shadow-[0_0_8px_#E60012]" />
+                </div>
+                <div className="text-xs font-black text-white group-hover:text-[var(--color-danger)] transition-colors">
+                  {t.hero.statusCreatePorto}
+                </div>
+                <div className="text-[9px] text-[var(--color-text-muted)] mt-1 font-mono leading-tight">
+                  {t.hero.statusCreatePortoSub}
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Cyberform';
+  src: url('/fonts/cyberform/cyberform.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root, .dark {
   --color-primary: #050814; /* Deep Space Black with a hint of blue */
   --color-secondary: #0D162B; /* Dark Gundam Blue for cards/panels */
@@ -30,6 +37,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-mono);
   --font-mono: var(--font-geist-mono);
+  --font-cyberform: 'Cyberform';
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
@@ -37,6 +45,10 @@
   --radius-2xl: 0px;
   --radius-3xl: 0px;
   --radius-full: 0px;
+}
+
+.font-cyberform {
+  font-family: 'Cyberform', var(--font-mono), var(--font-sans), monospace;
 }
 
 /* Nanodynamic Gundam UI Utilities */
