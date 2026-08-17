@@ -7,14 +7,14 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function Experience() {
   const { t } = useLanguage();
   return (
-    <section id="experience" className="py-24 bg-[var(--color-primary)] relative">
+    <section id="experience" className="py-16 bg-[var(--color-primary)] relative">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
             {t.experience.title}
@@ -25,18 +25,18 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
           {/* Work Experience */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-[var(--color-accent)]/20 mecha-cut text-[var(--color-accent)]">
-                <Briefcase size={24} />
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2 bg-[var(--color-accent)]/20 mecha-cut text-[var(--color-accent)]">
+                <Briefcase size={20} />
               </div>
-              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.workTitle}</h3>
+              <h3 className="text-xl font-bold text-[var(--color-text-main)]">{t.experience.workTitle}</h3>
             </div>
-            
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+
+            <div className="space-y-5 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
               {t.experience.work.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -49,16 +49,16 @@ export default function Experience() {
                   <div className="flex items-center justify-center w-8 h-8 mecha-cut-sm border-2 border-[var(--color-highlight)] bg-[var(--color-secondary)] text-[var(--color-accent)] shadow shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] transition-colors z-10 mt-1">
                     <div className="w-2.5 h-2.5 bg-current" />
                   </div>
-                  
-                  <div className="flex-1 p-6 mecha-cut mecha-border bg-[var(--color-secondary)] hover:border-[var(--color-highlight)] transition-colors">
+
+                  <div className="flex-1 p-4 mecha-cut mecha-border bg-[var(--color-secondary)] hover:border-[var(--color-highlight)] transition-colors">
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
                       <h4 className="font-bold text-lg text-[var(--color-text-main)]">{exp.role}</h4>
                       <span className="text-xs font-medium text-[var(--color-accent)] border border-[var(--color-accent)] px-3 py-1 mecha-cut-sm w-fit">
                         {exp.period}
                       </span>
                     </div>
-                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm" suppressHydrationWarning>{exp.company}</div>
-                    <ul className="list-disc list-outside ml-4 text-sm text-[var(--color-text-muted)] space-y-2">
+                    <div className="text-[var(--color-text-main)] font-medium mb-2 text-sm" suppressHydrationWarning>{exp.company}</div>
+                    <ul className="list-disc list-outside ml-4 text-xs text-[var(--color-text-muted)] space-y-1">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
@@ -71,14 +71,14 @@ export default function Experience() {
 
           {/* Org Experience */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-[var(--color-danger)]/20 mecha-cut text-[var(--color-danger)]">
-                <Users size={24} />
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2 bg-[var(--color-danger)]/20 mecha-cut text-[var(--color-danger)]">
+                <Users size={20} />
               </div>
-              <h3 className="text-2xl font-bold text-[var(--color-text-main)]">{t.experience.orgTitle}</h3>
+              <h3 className="text-xl font-bold text-[var(--color-text-main)]">{t.experience.orgTitle}</h3>
             </div>
-            
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+
+            <div className="space-y-5 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
               {t.experience.org.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -91,16 +91,16 @@ export default function Experience() {
                   <div className="flex items-center justify-center w-8 h-8 mecha-cut-sm border-2 border-[var(--color-danger)] bg-[var(--color-secondary)] text-[var(--color-danger)] shadow shrink-0 group-hover:bg-[var(--color-danger)] group-hover:text-white transition-colors z-10 mt-1">
                     <div className="w-2.5 h-2.5 bg-current" />
                   </div>
-                  
-                  <div className="flex-1 p-6 mecha-cut border border-[var(--color-border)] border-r-4 border-r-[var(--color-danger)] bg-[var(--color-secondary)] hover:border-[var(--color-danger)] transition-colors">
+
+                  <div className="flex-1 p-4 mecha-cut border border-[var(--color-border)] border-r-4 border-r-[var(--color-danger)] bg-[var(--color-secondary)] hover:border-[var(--color-danger)] transition-colors">
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
                       <h4 className="font-bold text-lg text-[var(--color-text-main)]">{exp.role}</h4>
                       <span className="text-xs font-medium text-[var(--color-danger)] border border-[var(--color-danger)] px-3 py-1 mecha-cut-sm w-fit">
                         {exp.period}
                       </span>
                     </div>
-                    <div className="text-[var(--color-text-main)] font-medium mb-4 text-sm leading-tight" suppressHydrationWarning>{exp.org}</div>
-                    <ul className="list-disc list-outside ml-4 text-sm text-[var(--color-text-muted)] space-y-2">
+                    <div className="text-[var(--color-text-main)] font-medium mb-2 text-sm leading-tight" suppressHydrationWarning>{exp.org}</div>
+                    <ul className="list-disc list-outside ml-4 text-xs text-[var(--color-text-muted)] space-y-1">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
