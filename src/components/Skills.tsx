@@ -85,14 +85,14 @@ export default function Skills() {
         <div className="flex flex-col gap-8 overflow-hidden">
           {/* Row 1: Frontend & Design (Moving Left) */}
           <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-4">
-            <div className="flex gap-6 px-3">
+            <div className="flex gap-4 md:gap-6 px-2 md:px-3">
               {[...skillGroups[0].items, ...skillGroups[2].items].map((item, i) => (
                 <div
                   key={`row1-${i}`}
-                  className="flex items-center gap-3 px-6 py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-highlight)] shadow-lg hover:border-[var(--color-accent)] transition-colors cursor-default min-w-max"
+                  className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-highlight)] shadow-lg hover:border-[var(--color-accent)] transition-colors cursor-default min-w-max"
                 >
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
+                  <span className="text-xl md:text-2xl">{item.icon}</span>
+                  <span className="text-sm md:text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
                 </div>
               ))}
             </div>
@@ -100,14 +100,14 @@ export default function Skills() {
 
           {/* Row 2: Backend & Tools (Moving Right) */}
           <Marquee gradient={false} speed={40} direction="right" pauseOnHover={true} className="py-4">
-            <div className="flex gap-6 px-3">
+            <div className="flex gap-4 md:gap-6 px-2 md:px-3">
               {[...skillGroups[1].items, ...skillGroups[3].items].map((item, i) => (
                 <div
                   key={`row2-${i}`}
-                  className="flex items-center gap-3 px-6 py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-danger)] shadow-lg hover:border-[var(--color-highlight)] transition-colors cursor-default min-w-max"
+                  className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-danger)] shadow-lg hover:border-[var(--color-highlight)] transition-colors cursor-default min-w-max"
                 >
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
+                  <span className="text-xl md:text-2xl">{item.icon}</span>
+                  <span className="text-sm md:text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
                 </div>
               ))}
             </div>
