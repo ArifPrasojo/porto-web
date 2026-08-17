@@ -9,9 +9,7 @@ export default function Hero() {
   const { t } = useLanguage();
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-22 pb-20 md:pt-16 md:pb-0 overflow-hidden">
-      {/* Background Ornaments */}
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-pulse" />
-      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-40" />
+
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-12 mt-10 md:mt-0">
 
@@ -94,8 +92,25 @@ export default function Hero() {
               />
             </div>
 
-            {/* Decoration Dashed Ring */}
-            <div className="absolute inset-0 mecha-cut border-2 border-dashed border-[var(--color-highlight)] animate-pulse"></div>
+            {/* Decoration Dashed Ring (Rotating) */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 mecha-cut border-2 border-dashed border-[var(--color-highlight)] opacity-50"
+            ></motion.div>
+
+            {/* Targeting Reticle Corners */}
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-[var(--color-danger)] z-20"></div>
+            <div className="absolute -top-2 -right-2 w-8 h-8 border-t-4 border-r-4 border-[var(--color-danger)] z-20"></div>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-4 border-l-4 border-[var(--color-danger)] z-20"></div>
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-[var(--color-danger)] z-20"></div>
+
+            {/* Scanning Laser Line */}
+            <motion.div
+              animate={{ top: ["0%", "100%", "0%"] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 right-0 h-[2px] bg-[var(--color-accent)] shadow-[0_0_15px_var(--color-accent)] z-30 opacity-70"
+            ></motion.div>
 
             {/* Flying Mecha Funnel (Drone) */}
             <motion.div

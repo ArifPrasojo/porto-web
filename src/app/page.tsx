@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Preloader />
-      <main className="min-h-screen bg-[var(--color-primary)] selection:bg-[var(--color-accent)] selection:text-white text-base">
+      <main className="min-h-screen selection:bg-[var(--color-accent)] selection:text-white text-base">
         <Navbar />
         <Hero />
         <About />

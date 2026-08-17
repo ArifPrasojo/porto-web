@@ -4,40 +4,40 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const Funnel = ({ 
-  delay, 
-  startX, 
-  startY, 
-  duration, 
-  direction 
-}: { 
-  delay: number; 
-  startX: string; 
-  startY: string; 
+const Funnel = ({
+  delay,
+  startX,
+  startY,
+  duration,
+  direction
+}: {
+  delay: number;
+  startX: string;
+  startY: string;
   duration: number;
   direction: 1 | -1;
 }) => {
   return (
     <motion.div
       initial={{ x: startX, y: startY, opacity: 0 }}
-      animate={{ 
+      animate={{
         x: [
-          startX, 
-          `calc(${startX} + ${30 * direction}vw)`, 
-          `calc(${startX} + ${60 * direction}vw)`, 
+          startX,
+          `calc(${startX} + ${30 * direction}vw)`,
+          `calc(${startX} + ${60 * direction}vw)`,
           `calc(${startX} + ${90 * direction}vw)`
         ],
         y: [
-          startY, 
-          `calc(${startY} - 20vh)`, 
-          `calc(${startY} + 30vh)`, 
+          startY,
+          `calc(${startY} - 20vh)`,
+          `calc(${startY} + 30vh)`,
           `calc(${startY} - 10vh)`
         ],
         opacity: [0, 1, 1, 0],
         rotate: [0, 15 * direction, -5 * direction, 10 * direction]
       }}
-      transition={{ 
-        duration: duration, 
+      transition={{
+        duration: duration,
         repeat: Infinity,
         delay: delay,
         ease: "linear"
@@ -45,15 +45,15 @@ const Funnel = ({
       className="fixed z-0 pointer-events-none"
     >
       {/* Funnel Assembly (Mecha Drone) */}
-      <div 
-        className="relative flex items-center" 
+      <div
+        className="relative flex items-center"
         style={{ transform: `scaleX(${direction === 1 ? 1 : -1})` }}
       >
         {/* Engine Thruster Effect (Emits from the Tail on the Left) */}
-        <motion.div 
+        <motion.div
           animate={{ scaleX: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 0.2, repeat: Infinity }}
-          className="absolute right-[80%] w-10 h-1 bg-[var(--color-highlight)] origin-right blur-[2px]"
+          className="absolute right-[80%] w-10 h-1 bg-[var(--color-highlight)] origin-right"
           style={{ marginRight: '-2px' }}
         />
 
@@ -64,16 +64,16 @@ const Funnel = ({
             alt="Mecha Spacecraft"
             fill
             sizes="96px"
-            className="object-contain drop-shadow-[0_0_10px_var(--color-accent)]"
+            className="object-contain"
             unoptimized
           />
         </div>
-        
+
         {/* Laser Beam (Shoots from the Nose on the Right) */}
-        <motion.div 
+        <motion.div
           animate={{ opacity: [0, 0, 1, 1, 0, 0], scaleX: [0, 0, 1, 1, 0, 0] }}
           transition={{ duration: 3, repeat: Infinity, delay: delay + 1 }}
-          className="absolute left-[80%] h-[4px] w-56 md:w-96 bg-[var(--color-danger)] shadow-[0_0_20px_var(--color-danger)] origin-left z-0"
+          className="absolute left-[80%] h-[4px] w-56 md:w-96 bg-[var(--color-danger)] origin-left z-0"
         />
 
         {/* Enemy Comet / Asteroid */}
@@ -97,13 +97,13 @@ const Funnel = ({
           </div>
 
           {/* Comet Fire Tail */}
-          <div className="absolute top-1/2 left-full -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-orange-500/80 to-transparent blur-md -z-10 rounded-full" />
+          <div className="absolute top-1/2 left-full -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-orange-500/80 to-transparent -z-10 rounded-full" />
 
           {/* Explosion Particle Burst (Syncs with the exact hit frame) */}
-          <motion.div 
+          <motion.div
             animate={{ opacity: [0, 0, 0, 1, 0, 0], scale: [0, 0, 0, 2.5, 0, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: delay + 1 }}
-            className="absolute inset-0 bg-yellow-400 shadow-[0_0_40px_var(--color-danger)] rounded-full mix-blend-screen"
+            className="absolute inset-0 bg-yellow-400 rounded-full"
           />
         </motion.div>
       </div>
@@ -124,15 +124,9 @@ export default function BackgroundFunnels() {
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Funnel 1 - Top Left */}
       <Funnel delay={0} startX="-10vw" startY="20vh" duration={12} direction={1} />
-      
+
       {/* Funnel 2 - Bottom Right */}
       <Funnel delay={3} startX="110vw" startY="70vh" duration={15} direction={-1} />
-      
-      {/* Funnel 3 - Middle Left */}
-      <Funnel delay={6} startX="-10vw" startY="50vh" duration={10} direction={1} />
-      
-      {/* Funnel 4 - Top Right */}
-      <Funnel delay={8} startX="110vw" startY="30vh" duration={14} direction={-1} />
     </div>
   );
 }

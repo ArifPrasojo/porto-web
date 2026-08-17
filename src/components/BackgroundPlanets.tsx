@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const Planet = ({ 
-  className, 
-  sizeClasses, 
-  gradient, 
-  duration, 
-  craters 
-}: { 
-  className: string; 
-  sizeClasses: string; 
-  gradient: string; 
+const Planet = ({
+  className,
+  sizeClasses,
+  gradient,
+  duration,
+  craters
+}: {
+  className: string;
+  sizeClasses: string;
+  gradient: string;
   duration: number;
   craters: React.ReactNode;
 }) => {
@@ -26,7 +26,7 @@ const Planet = ({
       >
         {craters}
       </motion.div>
-      
+
       {/* 3D Static Shadow Overlay (Does not rotate, keeping lighting consistent) */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-transparent to-black/90 pointer-events-none" />
     </div>
@@ -43,13 +43,13 @@ export default function BackgroundPlanets() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      
+    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+
       {/* Big Moon - Top Right */}
-      <Planet 
-        className="-top-20 -right-20 md:-top-40 md:-right-40" 
-        sizeClasses="w-64 h-64 md:w-[500px] md:h-[500px]" 
-        gradient="bg-gradient-to-br from-stone-400 via-stone-500 to-stone-800" 
+      <Planet
+        className="-top-20 -right-20 md:-top-40 md:-right-40"
+        sizeClasses="w-64 h-64 md:w-[500px] md:h-[500px]"
+        gradient="bg-gradient-to-br from-stone-400 via-stone-500 to-stone-800"
         duration={120}
         craters={
           <>
@@ -63,10 +63,10 @@ export default function BackgroundPlanets() {
       />
 
       {/* Blue Ice Planet - Bottom Left */}
-      <Planet 
-        className="top-[75vh] -left-16 md:top-[65vh] md:-left-32" 
-        sizeClasses="w-40 h-40 md:w-[400px] md:h-[400px]" 
-        gradient="bg-gradient-to-br from-cyan-300 via-blue-600 to-blue-950" 
+      <Planet
+        className="top-[75vh] -left-16 md:top-[65vh] md:-left-32"
+        sizeClasses="w-40 h-40 md:w-[400px] md:h-[400px]"
+        gradient="bg-gradient-to-br from-cyan-300 via-blue-600 to-blue-950"
         duration={80}
         craters={
           <>
@@ -80,10 +80,10 @@ export default function BackgroundPlanets() {
       />
 
       {/* Small Red Planet - Top Left (Distant) */}
-      <Planet 
-        className="top-[15vh] left-[5vw] md:top-[20vh] md:left-[15vw] opacity-20 md:opacity-30" 
-        sizeClasses="w-16 h-16 md:w-24 md:h-24" 
-        gradient="bg-gradient-to-br from-orange-400 via-red-600 to-rose-950" 
+      <Planet
+        className="top-[15vh] left-[5vw] md:top-[20vh] md:left-[15vw] opacity-20 md:opacity-30"
+        sizeClasses="w-16 h-16 md:w-24 md:h-24"
+        gradient="bg-gradient-to-br from-orange-400 via-red-600 to-rose-950"
         duration={50}
         craters={
           <>
