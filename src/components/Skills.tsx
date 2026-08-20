@@ -73,11 +73,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
             {t.skills.title}
           </h2>
-          <div className="w-20 h-2 bg-[var(--color-highlight)] mx-auto mb-6 mecha-cut"></div>
-          <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p className="text-[var(--color-text-main)] text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto">
             {t.skills.subtitle}
           </p>
         </motion.div>

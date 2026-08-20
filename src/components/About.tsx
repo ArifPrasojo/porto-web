@@ -26,15 +26,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-8">
               {t.about.title}
             </h2>
-            <div className="w-20 h-2 bg-[var(--color-highlight)] mb-8 mecha-cut"></div>
-            
-            <p className="text-[var(--color-text-muted)] text-lg leading-relaxed mb-6">
+            <p className="text-[var(--color-text-main)] text-lg md:text-xl leading-relaxed mb-6 font-medium">
               {t.about.bio1}
             </p>
-            <p className="text-[var(--color-text-muted)] text-lg leading-relaxed">
+            <p className="text-[var(--color-text-main)] text-lg md:text-xl leading-relaxed font-medium">
               {t.about.bio2}
             </p>
           </motion.div>

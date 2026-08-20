@@ -16,11 +16,10 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
             {t.experience.title}
           </h2>
-          <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6"></div>
-          <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p className="text-[var(--color-text-main)] text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto">
             {t.experience.subtitle}
           </p>
         </motion.div>
