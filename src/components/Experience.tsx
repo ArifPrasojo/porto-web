@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function Experience() {
   const { t } = useLanguage();
   return (
-    <section id="experience" className="py-16 bg-[var(--color-primary)] relative">
+    <section id="experience" className="py-16 bg-[var(--color-primary)] relative" aria-label="Experience section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

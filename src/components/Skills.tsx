@@ -64,7 +64,7 @@ const skillGroups = [
 export default function Skills() {
   const { t } = useLanguage();
   return (
-    <section id="skills" className="py-24 bg-[var(--color-secondary)]/30 relative">
+    <section id="skills" className="py-24 bg-[var(--color-secondary)]/30 relative" aria-label="Skills section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

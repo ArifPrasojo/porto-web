@@ -16,11 +16,11 @@
   --color-highlight: #FFCC00; /* Classic Gundam Yellow */
   --color-danger: #E60012; /* Classic Gundam Red */
   --color-text-main: #FFFFFF; /* Pure White */
-  --color-text-muted: #828393; /* Muted slate gray */
+  --color-text-muted: #9BA3B8; /* Improved contrast slate gray */
   --color-border: #5A5B69; /* Dark Slate Gray from palette */
   --background: var(--color-primary);
   --foreground: var(--color-text-main);
-  --color-grid: rgba(0, 92, 250, 0.15); /* Vibrant Blue grid */
+  --color-grid: rgba(0, 92, 250, 0.12); /* Vibrant Blue grid */
 }
 
 @theme inline {
@@ -35,7 +35,7 @@
   --color-border: var(--color-border);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-cyberform: 'Cyberform';
   --radius-sm: 0px;
@@ -82,6 +82,19 @@ div.mecha-cut {
 section {
   background-color: transparent !important;
   border-radius: 0 !important;
+  position: relative;
+}
+
+/* Section divider */
+section:not(#home)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  opacity: 0.5;
 }
 
 /* Grid Pattern */
@@ -94,7 +107,7 @@ body {
   background-size: 40px 40px;
   background-position: center center;
   color: var(--foreground);
-  font-family: var(--font-mono), var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -193,4 +206,15 @@ div, section, img, span, p {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-danger);
+}
+
+/* Focus-visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
 }

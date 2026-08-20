@@ -113,6 +113,30 @@ export default function Projects() {
   } | null>(null);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) scrollRight();
+    if (isRightSwipe) scrollLeft();
+  };
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -139,7 +163,7 @@ export default function Projects() {
     : projects.filter(p => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-24 bg-[var(--color-primary)] relative">
+    <section id="projects" className="py-24 bg-[var(--color-primary)] relative" aria-label="Projects section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -199,6 +223,9 @@ export default function Projects() {
           {/* Slider Container */}
           <div 
             ref={scrollContainerRef}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
             className="flex overflow-x-auto gap-10 pb-8 snap-x snap-mandatory pt-4 px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             <AnimatePresence mode="popLayout">

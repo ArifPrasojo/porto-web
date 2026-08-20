@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function Preloader() {
   const [count, setCount] = useState(0);
@@ -71,28 +70,8 @@ export default function Preloader() {
               <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-highlight)]"></div>
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-danger)]"></div>
 
-              {/* Logo Box */}
-              <div className="flex justify-center mb-6">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  <div className="relative w-24 h-24">
-                    <Image 
-                      src="/gundam_a_logo.png" 
-                      alt="Logo" 
-                      fill 
-                      sizes="96px"
-                      className="object-contain"
-                      unoptimized
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
               {/* Brand Name */}
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-6 mt-4">
                 <span className="text-2xl md:text-3xl font-black tracking-[0.2em] text-[var(--color-text-main)] uppercase">
                   ArfPorto<span className="text-[var(--color-danger)] animate-pulse">_</span>
                 </span>

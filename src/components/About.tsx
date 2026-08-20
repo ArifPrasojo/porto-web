@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Server, Smartphone, Layout } from "lucide-react";
+import { Code, Server, Smartphone, Layout, GraduationCap, Calendar, Book, BookAIcon } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const featureIcons = [
@@ -11,11 +11,17 @@ const featureIcons = [
   <Layout className="text-[var(--color-accent)]" size={32} key="layout" />,
 ];
 
+const stats: { value: string; labelKey: "infoLabel1" | "infoLabel2" | "infoLabel3" }[] = [
+  { value: "10+", labelKey: "infoLabel1" },
+  { value: "3+", labelKey: "infoLabel2" },
+  { value: "15+", labelKey: "infoLabel3" },
+];
+
 export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-24 bg-[var(--color-primary)] relative">
+    <section id="about" className="py-24 bg-[var(--color-primary)] relative" aria-label="About section">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -32,9 +38,51 @@ export default function About() {
             <p className="text-[var(--color-text-main)] text-lg md:text-xl leading-relaxed mb-6 font-medium">
               {t.about.bio1}
             </p>
-            <p className="text-[var(--color-text-main)] text-lg md:text-xl leading-relaxed font-medium">
+            <p className="text-[var(--color-text-main)] text-lg md:text-xl leading-relaxed font-medium mb-8">
               {t.about.bio2}
             </p>
+
+            {/* Education Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="p-5 mecha-cut mecha-border bg-[var(--color-secondary)]"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-[var(--color-highlight)]/10 mecha-cut-sm text-[var(--color-highlight)]">
+                  <GraduationCap size={20} />
+                </div>
+                <span className="text-xs font-mono tracking-[0.2em] text-[var(--color-highlight)] uppercase">{t.about.education}</span>
+              </div>
+              <h4 className="text-lg font-bold text-[var(--color-text-main)] mb-1">{t.about.major}</h4>
+              <p className="text-sm text-[var(--color-text-muted)]">{t.about.university}</p>
+              <div className="flex items-center gap-2 mt-2 text-xs text-[var(--color-white)]">
+                <Book size={12} />
+                <span>{t.about.ipk}</span>
+              </div>
+              <div className="flex items-center gap-2 mt-2 text-xs text-[var(--color-white)]">
+                <Calendar size={12} />
+                <span>{t.about.period}</span>
+              </div>
+            </motion.div>
+
+            {/* Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-3 gap-4 mt-6"
+            >
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center p-4 mecha-cut-sm bg-[var(--color-secondary)] border border-[var(--color-border)]">
+                  <span className="text-2xl md:text-3xl font-black text-[var(--color-highlight)] font-cyberform block">{stat.value}</span>
+                  <span className="text-[10px] md:text-xs text-[var(--color-text-muted)] uppercase tracking-wider font-bold mt-1 block">{t.about[stat.labelKey]}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Right: Feature Cards */}
