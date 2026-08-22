@@ -83,6 +83,7 @@ section {
   background-color: transparent !important;
   border-radius: 0 !important;
   position: relative;
+  scroll-margin-top: 5rem;
 }
 
 /* Section divider */

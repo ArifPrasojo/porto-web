@@ -45,7 +45,7 @@ export default function Footer() {
           
           {/* Brand & Description */}
           <div className="md:col-span-1">
-            <h2 className="text-2xl font-bold text-[var(--color-text-main)] mb-3">
+            <h2 className="text-2xl font-bold text-[var(--color-text-main)] font-cyberform mb-3">
               ArfPorto<span className="text-[var(--color-accent)]">.</span>
             </h2>
             <p className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6">
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-1">
-            <h3 className="text-sm font-bold text-[var(--color-text-main)] mb-4 tracking-wider">{t.footer.quickLinks}</h3>
+            <h3 className="text-sm font-bold text-[var(--color-text-main)] mb-4 tracking-[0.2em] font-mono uppercase">{t.footer.quickLinks}</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, i) => (
                 <li key={i}>
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h3 className="text-sm font-bold text-[var(--color-text-main)] mb-4 tracking-wider">{t.footer.contact}</h3>
+            <h3 className="text-sm font-bold text-[var(--color-text-main)] mb-4 tracking-[0.2em] font-mono uppercase">{t.footer.contact}</h3>
             <ul className="space-y-3 text-sm text-[var(--color-text-muted)]">
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-[var(--color-accent)] shrink-0" />

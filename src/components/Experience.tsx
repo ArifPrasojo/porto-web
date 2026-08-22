@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function Experience() {
   const { t } = useLanguage();
   return (
-    <section id="experience" className="py-16 bg-[var(--color-primary)] relative" aria-label="Experience section">
+    <section id="experience" className="py-16 md:py-24 bg-[var(--color-primary)] relative" aria-label="Experience section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -16,10 +16,10 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] font-cyberform mb-4 md:mb-6">
             {t.experience.title}
           </h2>
-          <p className="text-[var(--color-text-main)] text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto">
+          <p className="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             {t.experience.subtitle}
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function Experience() {
                       </span>
                     </div>
                     <div className="text-[var(--color-text-main)] font-medium mb-2 text-sm" suppressHydrationWarning>{exp.company}</div>
-                    <ul className="list-disc list-outside ml-4 text-xs text-[var(--color-text-muted)] space-y-1">
+                    <ul className="list-disc list-outside ml-4 text-xs sm:text-sm text-[var(--color-text-muted)] space-y-1">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
@@ -99,7 +99,7 @@ export default function Experience() {
                       </span>
                     </div>
                     <div className="text-[var(--color-text-main)] font-medium mb-2 text-sm leading-tight" suppressHydrationWarning>{exp.org}</div>
-                    <ul className="list-disc list-outside ml-4 text-xs text-[var(--color-text-muted)] space-y-1">
+                    <ul className="list-disc list-outside ml-4 text-xs sm:text-sm text-[var(--color-text-muted)] space-y-1">
                       {exp.desc.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}

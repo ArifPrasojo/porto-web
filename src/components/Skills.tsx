@@ -64,19 +64,19 @@ const skillGroups = [
 export default function Skills() {
   const { t } = useLanguage();
   return (
-    <section id="skills" className="py-24 bg-[var(--color-secondary)]/30 relative" aria-label="Skills section">
+    <section id="skills" className="py-16 md:py-24 bg-[var(--color-secondary)]/30 relative" aria-label="Skills section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] font-cyberform mb-4 md:mb-6">
             {t.skills.title}
           </h2>
-          <p className="text-[var(--color-text-main)] text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto">
+          <p className="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             {t.skills.subtitle}
           </p>
         </motion.div>

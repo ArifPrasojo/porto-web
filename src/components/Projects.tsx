@@ -163,16 +163,16 @@ export default function Projects() {
     : projects.filter(p => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-24 bg-[var(--color-primary)] relative" aria-label="Projects section">
+    <section id="projects" className="py-16 md:py-24 bg-[var(--color-primary)] relative" aria-label="Projects section">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] font-cyberform mb-4 md:mb-6">
             {t.projects.title}
           </h2>
           
@@ -229,7 +229,7 @@ export default function Projects() {
             className="flex overflow-x-auto gap-10 pb-8 snap-x snap-mandatory pt-4 px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
+              {filteredProjects.map((project) => (
                 <motion.div
                   key={project.title}
                   layout
