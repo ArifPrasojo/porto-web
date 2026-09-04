@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/LanguageContext";
-import BackgroundFunnels from "@/components/BackgroundFunnels";
-import BackgroundPlanets from "@/components/BackgroundPlanets";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,9 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "ArfPorto | Arif Prasojo",
-  description: "Portofolio profesional Arif Prasojo dengan UI modern dan animasi expert.",
+  description: "UI Designer & Web Developer. Portofolio Arif Prasojo.",
   icons: {
     icon: "/gundam_a_logo.png",
   },
@@ -31,15 +39,11 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[var(--color-primary)]" suppressHydrationWarning>
-        <LanguageProvider>
-          <BackgroundPlanets />
-          <BackgroundFunnels />
-          {children}
-        </LanguageProvider>
+      <body className="min-h-full flex flex-col bg-theme-dark text-[#d9e2fd] font-sans" suppressHydrationWarning>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

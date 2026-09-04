@@ -1,27 +1,21 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
+import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
-import Preloader from "@/components/Preloader";
 
 export default function Home() {
   return (
-    <>
-      <Preloader />
-      <main className="min-h-screen selection:bg-[var(--color-accent)] selection:text-white text-base">
-        <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Footer />
-      </main>
-    </>
+    <main className="min-h-screen">
+      <Hero />
+      <Navbar />
+      <Projects />
+      <Experience />
+      <About />
+      <Skills />
+      <Footer />
+    </main>
   );
 }

@@ -1,221 +1,83 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Cyberform';
-  src: url('/fonts/cyberform/cyberform.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-:root, .dark {
-  --color-primary: #050814; /* Deep Space Black with a hint of blue */
-  --color-secondary: #0D162B; /* Dark Gundam Blue for cards/panels */
-  --color-tertiary: #1A2849; /* Lighter blue-grey for hovers */
-  --color-accent: #005CFA; /* Vibrant Classic Gundam Blue */
-  --color-accent-hover: #0045B8;
-  --color-highlight: #FFCC00; /* Classic Gundam Yellow */
-  --color-danger: #E60012; /* Classic Gundam Red */
-  --color-text-main: #FFFFFF; /* Pure White */
-  --color-text-muted: #9BA3B8; /* Improved contrast slate gray */
-  --color-border: #5A5B69; /* Dark Slate Gray from palette */
-  --background: var(--color-primary);
-  --foreground: var(--color-text-main);
-  --color-grid: rgba(0, 92, 250, 0.12); /* Vibrant Blue grid */
+:root {
+  --background: #091326;
+  --foreground: #d9e2fd;
+  --color-grid: transparent;
 }
 
 @theme inline {
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: var(--color-accent-hover);
-  --color-highlight: var(--color-highlight);
-  --color-danger: var(--color-danger);
-  --color-text-main: var(--color-text-main);
-  --color-text-muted: var(--color-text-muted);
-  --color-border: var(--color-border);
+  --color-theme-dark: #091326;
+  --color-theme-darker: #040e21;
+  --color-theme-card: #121b2f;
+  --color-theme-accent: #00f2fe;
+  --color-theme-accent-hover: #38bdf8;
+  --color-theme-accent-dim: #006a70;
+  --color-theme-surface-low: #0b132b;
+  --color-theme-surface-mid: #161f33;
+  --color-theme-surface-high: #202a3e;
+  --color-theme-footer: #006977;
+  --color-theme-footer-dark: #004f58;
+  --color-theme-muted: #849495;
+  --color-theme-ice: #e0fdff;
+  --color-ice: #e0fdff;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-cyberform: 'Cyberform';
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-full: 0px;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), monospace;
 }
 
-.font-cyberform {
-  font-family: 'Cyberform', var(--font-mono), var(--font-sans), monospace;
-}
-
-/* Nanodynamic Gundam UI Utilities */
-.mecha-cut-sm {
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-}
-.mecha-cut {
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-}
-.mecha-cut-lg {
-  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px));
-}
-.mecha-cut-bottom {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
-}
-.mecha-border {
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-highlight);
-  border-radius: 0 !important;
-}
-.mecha-border-right {
-  border: 1px solid var(--color-border);
-  border-right: 4px solid var(--color-highlight);
-  border-radius: 0 !important;
-}
-
-div.mecha-cut {
-  border-radius: 0 !important;
-}
-
-section {
-  background-color: transparent !important;
-  border-radius: 0 !important;
-  position: relative;
-  scroll-margin-top: 5rem;
-}
-
-/* Section divider */
-section:not(#home)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
-  opacity: 0.5;
-}
-
-/* Grid Pattern */
-
-body {
-  background-color: var(--background);
-  background-image: 
-    linear-gradient(var(--color-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center center;
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  overflow-x: hidden;
+html {
   scroll-behavior: smooth;
 }
 
-/* Global Gundam Overrides */
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 900 !important;
+body {
+  background-color: #091326;
+  color: #d9e2fd;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-a, button {
-  border-radius: 0 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+section {
+  scroll-margin-top: 4.5rem;
 }
 
-div, section, img, span, p {
-  border-radius: 0 !important;
-}
-
-/* Exception for explicitly circular elements (like planets) */
-.rounded-full {
-  border-radius: 9999px !important;
-}
-
-/* Scanline Animation */
-.scanline {
-  position: relative;
-  overflow: hidden;
-}
-.scanline::before {
-  content: " ";
-  display: block;
+.star {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 50;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
+  background-color: rgba(224, 253, 255, 0.75);
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 242, 254, 0.6);
 }
-.scanline::after {
-  content: " ";
-  display: block;
+
+.four-point-star {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.05);
-  opacity: 0;
-  z-index: 50;
-  pointer-events: none;
-  animation: flicker 2s infinite;
+  width: 8px;
+  height: 8px;
+  background: #e0fdff;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 3px #00f2fe);
 }
 
-@keyframes flicker {
-  0% { opacity: 0.02; }
-  50% { opacity: 0.05; }
-  100% { opacity: 0.02; }
-}
-
-@keyframes glitch {
-  0% { transform: translate(0) }
-  20% { transform: translate(-2px, 2px) }
-  40% { transform: translate(-2px, -2px) }
-  60% { transform: translate(2px, 2px) }
-  80% { transform: translate(2px, -2px) }
-  100% { transform: translate(0) }
-}
-.gundam-glitch:hover {
-  animation: glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
-}
-
-@keyframes thruster {
-  0% { left: -100%; }
-  100% { left: 200%; }
-}
-.animate-thruster {
-  animation: thruster 0.4s ease-out forwards;
-}
-
-/* Custom scrollbar for modern look */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--color-primary);
-  border-left: 1px solid var(--color-border);
+  background: #040e21;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--color-highlight);
+  background: #00f2fe;
+  border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-danger);
+  background: #38bdf8;
 }
 
-/* Focus-visible for keyboard navigation */
 :focus-visible {
-  outline: 2px solid var(--color-highlight);
-  outline-offset: 2px;
-}
-
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--color-highlight);
+  outline: 2px solid #00f2fe;
   outline-offset: 2px;
 }

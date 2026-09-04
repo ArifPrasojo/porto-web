@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useLanguage } from "@/lib/LanguageContext";
-
 import Marquee from "react-fast-marquee";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiBootstrap, SiVite,
   SiNodedotjs, SiExpress, SiPostgresql, SiMysql, SiPhp, SiLaravel, SiJsonwebtokens, SiNginx, SiBun, SiTypescript,
@@ -12,106 +10,85 @@ import {
 import { FaServer, FaVectorSquare, FaPaintBrush, FaSearch, FaGitAlt, FaGithub } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
 
-const skillGroups = [
-  {
-    id: "frontend", items: [
-      { name: "HTML5", icon: <SiHtml5 className="text-[#E34F26]" /> },
-      { name: "CSS3", icon: <SiCss className="text-[#1572B6]" /> },
-      { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
-      { name: "React.js", icon: <SiReact className="text-[#61DAFB]" /> },
-      { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
-      { name: "Bootstrap", icon: <SiBootstrap className="text-[#7952B3]" /> },
-      { name: "VITE", icon: <SiVite className="text-[#646CFF]" /> }
-    ]
-  },
-  {
-    id: "backend", items: [
-      { name: "Node.js", icon: <SiNodedotjs className="text-[#339933]" /> },
-      { name: "Express", icon: <SiExpress className="text-white" /> },
-      { name: "REST API", icon: <FaServer className="text-gray-400" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" /> },
-      { name: "MySQL", icon: <SiMysql className="text-[#4479A1]" /> },
-      { name: "PHP", icon: <SiPhp className="text-[#777BB4]" /> },
-      { name: "LARAVEL", icon: <SiLaravel className="text-[#FF2D20]" /> },
-      { name: "FILAMENT", icon: <SiLaravel className="text-[#FF2D20]" /> },
-      { name: "JWT", icon: <SiJsonwebtokens className="text-white" /> },
-      { name: "NGINX", icon: <SiNginx className="text-[#009639]" /> },
-      { name: "BUN", icon: <SiBun className="text-[#FBF0DF]" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> }
-    ]
-  },
-  {
-    id: "design", items: [
-      { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
-      { name: "Wireframing", icon: <FaVectorSquare className="text-gray-300" /> },
-      { name: "Prototyping", icon: <FaPaintBrush className="text-pink-400" /> },
-      { name: "User Research", icon: <FaSearch className="text-blue-300" /> }
-    ]
-  },
-  {
-    id: "tools", items: [
-      { name: "Git", icon: <FaGitAlt className="text-[#F05032]" /> },
-      { name: "GitHub", icon: <FaGithub className="text-white" /> },
-      { name: "VS Code", icon: <VscVscode className="text-[#007ACC]" /> },
-      { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
-      { name: "Vercel", icon: <SiVercel className="text-white" /> },
-      { name: "LINUX", icon: <SiLinux className="text-[#FCC624]" /> }
-    ]
-  },
+const row1 = [
+  { name: "HTML5", icon: <SiHtml5 /> },
+  { name: "CSS3", icon: <SiCss /> },
+  { name: "JavaScript", icon: <SiJavascript /> },
+  { name: "React.js", icon: <SiReact /> },
+  { name: "Next.js", icon: <SiNextdotjs /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  { name: "Bootstrap", icon: <SiBootstrap /> },
+  { name: "Vite", icon: <SiVite /> },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "Figma", icon: <SiFigma /> },
+  { name: "Wireframing", icon: <FaVectorSquare /> },
+  { name: "Prototyping", icon: <FaPaintBrush /> },
+  { name: "User Research", icon: <FaSearch /> },
+];
+
+const row2 = [
+  { name: "Node.js", icon: <SiNodedotjs /> },
+  { name: "Express", icon: <SiExpress /> },
+  { name: "REST API", icon: <FaServer /> },
+  { name: "PostgreSQL", icon: <SiPostgresql /> },
+  { name: "MySQL", icon: <SiMysql /> },
+  { name: "PHP", icon: <SiPhp /> },
+  { name: "Laravel", icon: <SiLaravel /> },
+  { name: "JWT", icon: <SiJsonwebtokens /> },
+  { name: "Nginx", icon: <SiNginx /> },
+  { name: "Bun", icon: <SiBun /> },
+  { name: "Git", icon: <FaGitAlt /> },
+  { name: "GitHub", icon: <FaGithub /> },
+  { name: "VS Code", icon: <VscVscode /> },
+  { name: "Postman", icon: <SiPostman /> },
+  { name: "Vercel", icon: <SiVercel /> },
+  { name: "Linux", icon: <SiLinux /> },
 ];
 
 export default function Skills() {
   const { t } = useLanguage();
+
   return (
-    <section id="skills" className="py-16 md:py-24 bg-[var(--color-secondary)]/30 relative" aria-label="Skills section">
-      <div className="container mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 md:mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-main)] font-cyberform mb-4 md:mb-6">
-            {t.skills.title}
-          </h2>
-          <p className="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            {t.skills.subtitle}
-          </p>
-        </motion.div>
-
-        <div className="flex flex-col gap-8 overflow-hidden">
-          {/* Row 1: Frontend & Design (Moving Left) */}
-          <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-4">
-            <div className="flex gap-4 md:gap-6 px-2 md:px-3">
-              {[...skillGroups[0].items, ...skillGroups[2].items].map((item, i) => (
-                <div
-                  key={`row1-${i}`}
-                  className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-highlight)] shadow-lg hover:border-[var(--color-accent)] transition-colors cursor-default min-w-max"
-                >
-                  <span className="text-xl md:text-2xl">{item.icon}</span>
-                  <span className="text-sm md:text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
-                </div>
-              ))}
-            </div>
-          </Marquee>
-
-          {/* Row 2: Backend & Tools (Moving Right) */}
-          <Marquee gradient={false} speed={40} direction="right" pauseOnHover={true} className="py-4">
-            <div className="flex gap-4 md:gap-6 px-2 md:px-3">
-              {[...skillGroups[1].items, ...skillGroups[3].items].map((item, i) => (
-                <div
-                  key={`row2-${i}`}
-                  className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-[var(--color-primary)] mecha-cut mecha-border border-t-4 border-t-[var(--color-danger)] shadow-lg hover:border-[var(--color-highlight)] transition-colors cursor-default min-w-max"
-                >
-                  <span className="text-xl md:text-2xl">{item.icon}</span>
-                  <span className="text-sm md:text-lg font-bold text-[var(--color-text-main)]">{item.name}</span>
-                </div>
-              ))}
-            </div>
-          </Marquee>
+    <section id="skills" className="py-14 bg-[#070e1f] border-t border-[#162544] text-center overflow-hidden" aria-label="Skills section">
+      <div className="max-w-3xl mx-auto flex flex-col items-center px-4 mb-8">
+        <div className="flex items-center space-x-3 mb-3">
+          <span className="h-px w-6 bg-[#00f2fe]/40" />
+          <h2 className="font-display text-xs font-bold tracking-wider text-white uppercase">{t.skills.title}</h2>
+          <span className="h-px w-6 bg-[#00f2fe]/40" />
         </div>
+        <p className="text-[10px] text-gray-400 max-w-sm">{t.skills.subtitle}</p>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        {/* Row 1: Frontend & Design (Left) */}
+        <Marquee gradient={false} speed={35} pauseOnHover={true}>
+          <div className="flex gap-4 px-2">
+            {row1.map((item, i) => (
+              <div
+                key={`r1-${i}-${item.name}`}
+                className="flex items-center gap-3 px-4 py-2.5 bg-[#121b2f] border border-[#1e2f4f] rounded shadow-[0_0_12px_rgba(0,242,254,0.08)] hover:border-[#00f2fe] transition"
+              >
+                <span className="text-[#00f2fe] text-lg">{item.icon}</span>
+                <span className="text-xs font-medium text-[#d9e2fd] whitespace-nowrap">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </Marquee>
+
+        {/* Row 2: Backend & Tools (Right) */}
+        <Marquee gradient={false} speed={35} direction="right" pauseOnHover={true}>
+          <div className="flex gap-4 px-2">
+            {row2.map((item, i) => (
+              <div
+                key={`r2-${i}-${item.name}`}
+                className="flex items-center gap-3 px-4 py-2.5 bg-[#121b2f] border border-[#1e2f4f] rounded shadow-[0_0_12px_rgba(0,242,254,0.08)] hover:border-[#00f2fe] transition"
+              >
+                <span className="text-[#00f2fe] text-lg">{item.icon}</span>
+                <span className="text-xs font-medium text-[#d9e2fd] whitespace-nowrap">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </Marquee>
       </div>
     </section>
   );
