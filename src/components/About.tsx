@@ -14,7 +14,7 @@ export default function About() {
       <div className="four-point-star top-60 left-[62%]" />
       <div className="star w-1 h-1 top-80 left-[35%]" />
 
-      <div className="absolute right-[-80px] sm:right-[-40px] top-[180px] w-64 sm:w-80 h-64 sm:h-80 pointer-events-none z-0">
+      <div className="absolute right-[-80px] sm:right-[-40px] top-[180px] w-64 sm:w-80 h-64 sm:h-80 pointer-events-none z-0 hidden sm:block">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 300 300">
           <defs>
             <linearGradient id="planetGradCyan" x1="20%" x2="80%" y1="20%" y2="80%">

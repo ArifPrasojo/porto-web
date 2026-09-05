@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { Compass, Laptop, ExternalLink } from "lucide-react";
+import { Compass, Laptop, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -29,6 +29,8 @@ const projectsData = [
 export default function Projects() {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("all");
+  const trackRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ down: false, startX: 0, scrollLeft: 0 });
 
   const projects = projectsData.map((p, i) => ({
     ...p,
@@ -38,6 +40,29 @@ export default function Projects() {
 
   const filtered = activeTab === "all" ? projects : projects.filter((p) => p.category === activeTab);
 
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * (el.querySelector<HTMLElement>("article")?.offsetWidth ?? 300) + dir * 24, behavior: "smooth" });
+  };
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    const el = trackRef.current;
+    if (!el) return;
+    drag.current = { down: true, startX: e.pageX, scrollLeft: el.scrollLeft };
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!drag.current.down) return;
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollLeft = drag.current.scrollLeft - (e.pageX - drag.current.startX);
+  };
+
+  const onPointerUp = () => {
+    drag.current.down = false;
+  };
+
   return (
     <section id="work" className="py-16 px-4 bg-[#091326]" aria-label="Projects section">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -46,7 +71,7 @@ export default function Projects() {
         </div>
         <h2 className="text-lg font-bold text-white tracking-wider uppercase mb-5 font-display">{t.projects.title}</h2>
 
-        <div className="inline-flex rounded border border-[#1e2f4f] bg-[#0c162a] p-0.5 mb-10 text-xs">
+        <div className="inline-flex rounded border border-[#1e2f4f] bg-[#0c162a] p-0.5 mb-8 text-xs">
           {[
             { id: "all", label: t.projects.all },
             { id: "software", label: t.projects.software },
@@ -67,45 +92,77 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
-          {filtered.map((project) => (
-            <article
-              key={project.title}
-              className="bg-[#121b2f] rounded overflow-hidden shadow-lg border-b-2 border-transparent hover:border-[#00f2fe] flex flex-col group transition duration-300 hover:-translate-y-1"
-            >
-              <div className="h-36 relative overflow-hidden bg-[#192642]">
-                {project.image.startsWith("http") ? (
-                  <div className="w-full h-full bg-[#16233d] flex items-center justify-center border-b border-[#1e2f4f]">
-                    <Laptop className="text-[#00f2fe] opacity-70" size={32} />
-                  </div>
-                ) : (
-                  <Image src={project.image} alt={project.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw" />
-                )}
-                {project.isComingSoon && (
-                  <span className="absolute top-2 right-2 bg-[#00f2fe] text-[#00373a] text-[9px] font-bold px-2 py-0.5 rounded-sm">
-                    {t.projects.comingSoon}
-                  </span>
-                )}
-              </div>
-              <div className="p-4 flex-1 flex flex-col bg-white text-left">
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-[#006a70]">{project.title}</h3>
-                <p className="text-[11px] leading-relaxed text-gray-500 mt-2 flex-1">{project.desc}</p>
-                <div className="flex gap-3 mt-3">
-                  {project.github !== "#" && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] font-bold text-gray-600 hover:text-[#00f2fe]">
-                      <GithubIcon size={12} /> {t.projects.code}
-                    </a>
+        <div className="relative w-full">
+          <div
+            ref={trackRef}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerLeave={onPointerUp}
+            className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory pt-1 px-1 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {filtered.map((project) => (
+              <article
+                key={project.title}
+                className="snap-start shrink-0 w-[85vw] max-w-[300px] sm:w-[300px] bg-[#121b2f] rounded overflow-hidden shadow-lg border-b-2 border-transparent hover:border-[#00f2fe] flex flex-col group transition duration-300 hover:-translate-y-1"
+              >
+                <div className="h-36 relative overflow-hidden bg-[#192642]">
+                  {project.image.startsWith("http") ? (
+                    <div className="w-full h-full bg-[#16233d] flex items-center justify-center border-b border-[#1e2f4f]">
+                      <Laptop className="text-[#00f2fe] opacity-70" size={32} />
+                    </div>
+                  ) : (
+                    <Image src={project.image} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 300px, 300px" />
                   )}
-                  {project.demo !== "#" && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] font-bold text-gray-600 hover:text-[#00f2fe]">
-                      <ExternalLink size={12} /> {t.projects.liveDemo}
-                    </a>
+                  {project.isComingSoon && (
+                    <span className="absolute top-2 right-2 bg-[#00f2fe] text-[#00373a] text-[9px] font-bold px-2 py-0.5 rounded-sm">
+                      {t.projects.comingSoon}
+                    </span>
                   )}
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="p-4 flex-1 flex flex-col bg-white text-left">
+                  <h3 className="font-display text-xs font-bold uppercase tracking-wider text-[#006a70]">{project.title}</h3>
+                  <p className="text-[11px] leading-relaxed text-gray-500 mt-2 flex-1">{project.desc}</p>
+                  <div className="flex gap-3 mt-3">
+                    {project.github !== "#" && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center gap-1 text-[10px] font-bold text-gray-600 hover:text-[#00f2fe]">
+                        <GithubIcon size={12} /> {t.projects.code}
+                      </a>
+                    )}
+                    {project.demo !== "#" && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center gap-1 text-[10px] font-bold text-gray-600 hover:text-[#00f2fe]">
+                        <ExternalLink size={12} /> {t.projects.liveDemo}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {filtered.length > 0 && (
+            <>
+              <button
+                onClick={() => scrollByCard(-1)}
+                aria-label="Scroll left"
+                className="hidden md:flex absolute -left-3 top-[42%] z-20 w-9 h-9 rounded-full bg-[#121b2f] border border-[#00f2fe]/50 text-[#00f2fe] items-center justify-center hover:bg-[#00f2fe] hover:text-[#00373a] hover:shadow-[0_0_12px_#00f2fe] transition shadow"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                onClick={() => scrollByCard(1)}
+                aria-label="Scroll right"
+                className="hidden md:flex absolute -right-3 top-[42%] z-20 w-9 h-9 rounded-full bg-[#121b2f] border border-[#00f2fe]/50 text-[#00f2fe] items-center justify-center hover:bg-[#00f2fe] hover:text-[#00373a] hover:shadow-[0_0_12px_#00f2fe] transition shadow"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </>
+          )}
         </div>
+
+        <span className="font-mono text-[10px] tracking-widest text-[#849495] mt-2">
+          ← drag / geser →
+        </span>
       </div>
     </section>
   );
