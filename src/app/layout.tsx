@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "ArfPorto | Arif Prasojo",
   description: "UI Designer & Web Developer. Portofolio Arif Prasojo.",
   icons: {
-    icon: "/gundam_a_logo.png",
+    icon: "/icon.svg",
   },
 };
 
