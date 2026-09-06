@@ -16,6 +16,7 @@ const projectsData = [
   { category: "software", github: "https://github.com/ArifPrasojo/el-strategis", demo: "https://el-strategis.vercel.app/", image: "/img/elstrategis.png", isComingSoon: false },
   { category: "software", github: "https://github.com/ArifPrasojo/el-fundamental.git", demo: "https://el-fundamental.vercel.app/", image: "/img/elfundamental.png", isComingSoon: false },
   { category: "software", github: "https://github.com/ArifPrasojo/summairaze-AI.git", demo: "https://summairaze-ai.vercel.app/", image: "/img/summary_ai.png", isComingSoon: false },
+  { category: "software", github: "https://github.com/ArifPrasojo/tiketinaja", demo: "#", image: "/img/tiketinaja.png", isComingSoon: false },
   { category: "software", github: "#", demo: "#", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop", isComingSoon: true },
   { category: "software", github: "https://github.com/ArifPrasojo/el-kasir", demo: "#", image: "/img/elkasir.png", isComingSoon: false },
   { category: "uiux", github: "#", demo: "https://www.figma.com/design/e9R3jbFE2c7A7d7qZj06vE/AMBULANS---GO?node-id=177-2&t=oLAlpI2deg2jFb5F-0", image: "/img/ambulans_go.png", isComingSoon: false },
