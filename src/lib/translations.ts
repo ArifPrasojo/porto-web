@@ -17,7 +17,7 @@ export const translations = {
       name: "Arif Prasojo",
       title: "UI Designer & Web Developer",
       description:
-        "Saya merancang dan membangun antarmuka web yang cepat, responsif, dan estetis — dari wireframe hingga kode siap produksi.",
+        "Saya merancang dan membangun antarmuka web yang cepat, responsif, dan estetis - dari wireframe hingga kode siap produksi.",
       cta: "Lihat Proyek",
       downloadCv: "Download CV",
       badge: "UI Designer & Developer",
@@ -30,7 +30,7 @@ export const translations = {
     about: {
       title: "Tentang Saya",
       subtitle: "Kenalan lebih dekat",
-      bio1: "Mahasiswa Teknologi Informasi yang fokus pada pengembangan web dan desain antarmuka. Terbiasa bekerja pada proyek nyata — dari aplikasi kasir multi-cabang hingga platform pembelajaran — dengan satu prinsip: solusi digital harus fungsional sekaligus enak dilihat.",
+      bio1: "Mahasiswa Teknologi Informasi yang fokus pada pengembangan web dan desain antarmuka. Terbiasa bekerja pada proyek nyata - dari aplikasi kasir multi-cabang hingga platform pembelajaran - dengan satu prinsip: solusi digital harus fungsional sekaligus enak dilihat.",
       bio2: "Di luar coding, saya aktif berorganisasi dan mengelola acara skala nasional. Pengalaman ini melatih saya bekerja dalam tim, berkomunikasi jelas, dan mengeksekusi proyek secara terstruktur.",
       education: "Pendidikan",
       major: "D4 SISTEM INFORMASI BISNIS",
@@ -86,7 +86,7 @@ export const translations = {
       liveDemo: "Live Demo",
       list: [
         { title: "El Strategis", desc: "Ekosistem manajemen keuangan pribadi untuk mencatat transaksi harian, mengelola anggaran, dan mencapai target finansial (Wishlist) dengan wawasan visual yang jernih." },
-        { title: "El-Fundamental", desc: "Platform pembelajaran interaktif bergaya Mecha untuk Python dan JavaScript — latih logika lewat misi coding taktis." },
+        { title: "El-Fundamental", desc: "Platform pembelajaran interaktif bergaya Mecha untuk Python dan JavaScript - latih logika lewat misi coding taktis." },
         { title: "AI Summarizer App", desc: "Aplikasi web untuk meringkas dokumen panjang menjadi intisari dalam hitungan detik menggunakan Gemini API." },
         { title: "TiketinAja", desc: "Sistem pemesanan tiket online terintegrasi yang memudahkan pengguna mencari, memilih kursi, dan membeli tiket acara dengan pengalaman yang mulus." },
         { title: "E-Commerce Dashboard", desc: "Dashboard admin terpusat untuk mengelola inventaris produk, pesanan, dan analitik performa toko." },
@@ -133,7 +133,7 @@ export const translations = {
       name: "Arif Prasojo",
       title: "UI Designer & Web Developer",
       description:
-        "I design and build fast, responsive, and aesthetic web interfaces — from wireframe to production-ready code.",
+        "I design and build fast, responsive, and aesthetic web interfaces - from wireframe to production-ready code.",
       cta: "View Projects",
       downloadCv: "Download CV",
       badge: "UI Designer & Developer",
@@ -146,7 +146,7 @@ export const translations = {
     about: {
       title: "About Me",
       subtitle: "Get to know me better",
-      bio1: "Information Technology student focused on web development and interface design. Experienced in real-world projects — from multi-branch POS systems to learning platforms — with one principle: digital solutions must be functional and visually compelling.",
+      bio1: "Information Technology student focused on web development and interface design. Experienced in real-world projects - from multi-branch POS systems to learning platforms - with one principle: digital solutions must be functional and visually compelling.",
       bio2: "Beyond coding, I actively participate in organizations and have managed national-scale events. This sharpened my teamwork, communication, and structured project execution skills.",
       education: "Education",
       major: "D4 Business Information Systems",
@@ -159,7 +159,7 @@ export const translations = {
       features: [
         { title: "Frontend Development", desc: "Building interactive and responsive interfaces with React & Next.js." },
         { title: "Backend Integration", desc: "Connecting apps to reliable APIs with well-structured data flows." },
-        { title: "Responsive Design", desc: "Consistent, smooth experience across all screen sizes — mobile to desktop." },
+        { title: "Responsive Design", desc: "Consistent, smooth experience across all screen sizes - mobile to desktop." },
         { title: "UI/UX Design", desc: "Crafting intuitive, aesthetic user flows that always put users first." },
       ],
     },
@@ -202,7 +202,7 @@ export const translations = {
       liveDemo: "Live Demo",
       list: [
         { title: "El Strategis", desc: "Personal finance ecosystem for tracking daily transactions, managing budgets, and reaching financial goals (Wishlist) with crystal-clear visual insights." },
-        { title: "El-Fundamental", desc: "Mecha-styled interactive learning platform for Python and JavaScript — sharpen your logic through tactical coding missions." },
+        { title: "El-Fundamental", desc: "Mecha-styled interactive learning platform for Python and JavaScript - sharpen your logic through tactical coding missions." },
         { title: "AI Summarizer App", desc: "Web app that distills long documents into key takeaways in seconds using the Gemini API." },
         { title: "TiketinAja", desc: "Integrated online ticket booking system that lets users search, pick seats, and purchase event tickets with a seamless experience." },
         { title: "E-Commerce Dashboard", desc: "Centralized admin dashboard for managing product inventory, orders, and store performance analytics." },
