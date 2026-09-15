@@ -1,121 +1,107 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Briefcase, Users } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
-
-type Entry = { role: string; period: string; place: string; desc: string[] };
-
-const WORK_COLOR = "#00f2fe";
-const ORG_COLOR = "#8b5cf6";
 
 export default function Experience() {
   const { t } = useLanguage();
 
-  const workEntries: Entry[] = t.experience.work.map((e) => ({
-    role: e.role,
-    period: e.period,
-    place: e.company,
-    desc: e.desc,
-  }));
+  const work = [
+    {
+      year: "2025",
+      role: t.experience.work[0]?.role ?? "Front End Developer",
+      place: t.experience.work[0]?.company ?? "PT Binary Cipta Solusindo",
+      focus: t.experience.work[0]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[0],
+    },
+    {
+      year: "2024",
+      role: t.experience.work[1]?.role ?? "UI Designer",
+      place: t.experience.work[1]?.company ?? "PT Teknologi Indonesia Ciptahardya",
+      focus: t.experience.work[1]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[1],
+    },
+    {
+      year: "2022",
+      role: t.experience.work[2]?.role ?? "Product Marketing",
+      place: t.experience.work[2]?.company ?? "Samsung Store Pare",
+      focus: t.experience.work[2]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[2],
+    },
+    {
+      year: "2020",
+      role: t.experience.work[3]?.role ?? "Digital Marketing & Front End",
+      place: t.experience.work[3]?.company ?? "indoweb.id",
+      focus: t.experience.work[3]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[3],
+    },
+  ];
 
-  const orgEntries: Entry[] = t.experience.org.map((e) => ({
-    role: e.role,
-    period: e.period,
-    place: e.org,
-    desc: e.desc,
-  }));
+  const org = [
+    {
+      year: "2024–2025",
+      role: t.experience.org[0]?.role ?? "Steering Committee",
+      place: t.experience.org[0]?.org ?? "HMTI Politeknik Negeri Malang",
+      focus: t.experience.org[0]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[4],
+    },
+    {
+      year: "2022–2024",
+      role: t.experience.org[1]?.role ?? "Organizing Committee",
+      place: t.experience.org[1]?.org ?? "HMTI Politeknik Negeri Malang",
+      focus: t.experience.org[1]?.desc?.join(" ") ?? "",
+      type: t.ui.expTypes[4],
+    },
+  ];
 
   return (
-    <section id="experience" className="py-16 px-4 bg-[#070e1e] border-t border-[#162544]" aria-label="Experience section">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-center space-x-3 mb-4">
-          <span className="h-px w-6 bg-[#00f2fe]/40" />
-          <h2 className="font-display text-sm font-semibold tracking-wider text-[#d9e2fd] uppercase">{t.experience.title}</h2>
-          <span className="h-px w-6 bg-[#00f2fe]/40" />
+    <section className="w-full border-b border-primary bg-surface px-margin md:px-margin-desktop py-space-xl" id="pengalaman">
+      <div className="max-w-7xl mx-auto space-y-space-lg">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm border-b border-primary pb-space-sm">
+          <div>
+            <span className="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest block">{t.ui.expKicker}</span>
+            <h3 className="font-headline-md text-headline-md text-primary tracking-tight">
+              {t.experience.workTitle} &amp; {t.experience.orgTitle}
+            </h3>
+          </div>
+          <p className="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">
+            2020 — 2025
+          </p>
         </div>
-        <p className="text-center text-xs text-gray-400 mb-12">{t.experience.subtitle}</p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <TimelineColumn
-            title={t.experience.workTitle}
-            icon={<Briefcase size={14} />}
-            color={WORK_COLOR}
-            entries={workEntries}
-          />
-          <TimelineColumn
-            title={t.experience.orgTitle}
-            icon={<Users size={14} />}
-            color={ORG_COLOR}
-            entries={orgEntries}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+          <ExperienceGroup title={t.experience.workTitle} items={work} />
+          <ExperienceGroup title={t.experience.orgTitle} items={org} />
         </div>
       </div>
     </section>
   );
 }
 
-function TimelineColumn({
+function ExperienceGroup({
   title,
-  icon,
-  color,
-  entries,
+  items,
 }: {
   title: string;
-  icon: React.ReactNode;
-  color: string;
-  entries: Entry[];
+  items: { year: string; role: string; place: string; focus: string; type: string }[];
 }) {
   return (
-    <div>
-      <div className="flex items-center gap-2 mb-6">
-        <span
-          className="w-8 h-8 rounded-full flex items-center justify-center border"
-          style={{ color, borderColor: `${color}66`, background: `${color}1a` }}
-        >
-          {icon}
-        </span>
-        <h3 className="font-display text-xs font-bold tracking-wider text-white uppercase">{title}</h3>
+    <div className="border border-primary bg-surface-container-lowest">
+      <div className="px-space-md py-space-sm border-b border-primary bg-surface-container-high">
+        <h4 className="font-label-mono text-label-mono uppercase tracking-wider text-primary">{title}</h4>
       </div>
-
-      <div className="relative pl-6 space-y-6">
-        <div
-          className="absolute left-[13px] top-2 bottom-2 w-px"
-          style={{ background: `linear-gradient(to bottom, transparent, ${color}55, transparent)` }}
-        />
-
-        {entries.map((entry, i) => (
-          <motion.div
-            key={entry.role + entry.period}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45, delay: i * 0.08 }}
-            className="relative"
-          >
-            <div
-              className="absolute left-[-25px] top-1.5 flex items-center justify-center"
-              style={{ color }}
-            >
-              <div className="w-3 h-3 rounded-full" style={{ background: color, boxShadow: `0 0 10px ${color}99` }} />
+      <div className="divide-y divide-outline-variant/40">
+        {items.map((item) => (
+          <article key={item.role + item.year} className="p-space-md space-y-space-sm">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <span className="font-label-mono-sm text-label-mono-sm uppercase text-secondary font-semibold">{item.year}</span>
+              <span className="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">{item.type}</span>
             </div>
-
-            <div
-              className="bg-[#121b2f] rounded p-5 border border-[#1e2f4f] hover:shadow-lg transition"
-              style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.25)" }}
-            >
-              <h4 className="font-display text-sm font-bold text-white leading-snug mb-1">{entry.role}</h4>
-              <p className="font-mono text-[10px] mb-1" style={{ color }}>{entry.period}</p>
-              <p className="text-[11px] text-gray-400 mb-3">{entry.place}</p>
-              <ul className="space-y-1.5 text-[11px] leading-relaxed text-[#b9cacb]">
-                {entry.desc.map((item) => (
-                  <li key={item} className="pl-3 border-l-2" style={{ borderColor: `${color}40` }}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div>
+              <h5 className="font-headline-sm text-headline-sm text-primary leading-tight">{item.role}</h5>
+              <p className="font-label-mono text-label-mono text-on-surface-variant mt-1">{item.place}</p>
             </div>
-          </motion.div>
+            <p className="font-body-sm text-body-sm text-on-surface-variant">{item.focus}</p>
+          </article>
         ))}
       </div>
     </div>

@@ -1,72 +1,123 @@
 "use client";
 
 import { useLanguage } from "@/lib/LanguageContext";
+import { usePortfolioFilter, FilterValue } from "@/lib/PortfolioFilterContext";
+
+const tech = ["Next.js / React", "TypeScript", "Tailwind CSS", "Laravel", "Figma (UI/UX)", "Gemini AI API"];
 
 export default function Hero() {
   const { t } = useLanguage();
+  const { filter, setFilter } = usePortfolioFilter();
+
+  const filterPills: { id: FilterValue; label: string }[] = [
+    { id: "all", label: t.ui.filters.all },
+    { id: "fintech", label: t.ui.filters.fintech },
+    { id: "edtech", label: t.ui.filters.edtech },
+    { id: "ai-utility", label: t.ui.filters.ai },
+  ];
 
   return (
-    <section
-      id="home"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#0b1b36] via-[#0b132b] to-[#091326] pt-12 pb-16"
-      aria-label="Hero section"
-    >
-      <div className="absolute inset-0 pointer-events-none opacity-50">
-        <div className="star w-1 h-1 top-10 left-[15%]" />
-        <div className="star w-1.5 h-1.5 top-20 left-[80%]" />
-        <div className="four-point-star top-16 left-[25%]" />
-        <div className="four-point-star top-28 left-[72%]" />
-        <div className="star w-1 h-1 top-44 left-[10%]" />
-        <div className="star w-1 h-1 top-48 left-[88%]" />
-      </div>
+    <section className="w-full border-b border-primary bg-surface px-margin md:px-margin-desktop py-space-xl">
+      <div className="max-w-7xl mx-auto flex flex-col gap-space-lg">
+        {/* Manifesto label row */}
+        <div className="flex items-center justify-between font-label-mono-sm text-label-mono-sm uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/40 pb-space-sm">
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-secondary inline-block" />
+            <span>{t.ui.monograph}</span>
+          </span>
+          <span className="hidden sm:inline">{t.ui.tagline}</span>
+        </div>
 
-      <div className="max-w-4xl mx-auto px-4 flex flex-col items-center relative z-10 text-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-widest text-[#e0fdff] uppercase drop-shadow-[0_0_15px_rgba(0,242,254,0.3)] font-display">
-          ArfPorto
-        </h1>
-        <span className="text-xs sm:text-sm tracking-widest text-[#00f2fe]/70 mt-1 uppercase font-mono">
-          {t.hero.name} · {t.hero.title}
-        </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start pt-space-xs">
+          {/* Left: manifesto */}
+          <div className="lg:col-span-8 space-y-space-md">
+            <h1 className="font-display-lg-mobile text-display-lg-mobile lg:font-display-lg lg:text-display-lg text-primary tracking-tight leading-[1.05] max-w-4xl">
+              {t.ui.manifestoPre}
+              <span className="italic">{t.ui.manifestoItalic}</span>
+              {t.ui.manifestoPost}
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              {t.about.bio1}
+            </p>
+            <div className="pt-space-xs flex flex-wrap items-center gap-space-sm font-label-mono text-label-mono text-on-surface-variant">
+              {tech.map((item) => (
+                <span key={item} className="px-2 py-1 bg-surface-container-high border border-outline-variant/40 text-primary font-medium">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
 
-        <div className="relative w-full max-w-xl h-72 sm:h-96 mt-6 flex items-center justify-center">
-          <svg className="w-full h-full drop-shadow-[0_10px_35px_rgba(0,242,254,0.15)]" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="230" cy="90" fill="#00f2fe" opacity="0.45" rx="40" ry="8" />
-            <ellipse cx="420" cy="90" fill="#00f2fe" opacity="0.45" rx="45" ry="8" />
-            <polygon fill="#0b2847" opacity="0.8" points="120,240 240,140 330,240" />
-            <polygon fill="#0d355c" opacity="0.85" points="270,240 370,130 480,240" />
-            <polygon fill="#071b30" opacity="0.7" points="340,240 450,150 560,240" />
-            <path d="M 297 120 Q 285 240 220 340 L 380 340 Q 315 240 303 120 Z" fill="url(#smokeGradient)" opacity="0.95" />
-            <path d="M 299 120 L 285 260 L 315 260 Z" fill="#e0fdff" opacity="0.4" />
-            <circle cx="100" cy="200" fill="#12233f" r="80" />
-            <circle cx="170" cy="220" fill="#162c4e" r="70" />
-            <circle cx="45" cy="260" fill="#091428" r="90" />
-            <circle cx="150" cy="280" fill="#0d1b32" r="80" />
-            <circle cx="260" cy="310" fill="#132746" r="85" />
-            <circle cx="500" cy="200" fill="#12233f" r="80" />
-            <circle cx="430" cy="220" fill="#162c4e" r="70" />
-            <circle cx="555" cy="260" fill="#091428" r="90" />
-            <circle cx="450" cy="280" fill="#0d1b32" r="80" />
-            <circle cx="340" cy="310" fill="#132746" r="85" />
-            <path d="M 0,380 Q 80,290 180,310 Q 240,320 300,380 Q 360,320 420,310 Q 520,290 600,380 L 600,400 L 0,400 Z" fill="#091326" />
-            <g transform="translate(293, 90)">
-              <path d="M 7,0 C 2,6 1,18 1,28 L 13,28 C 13,18 12,6 7,0 Z" fill="#1a2d4c" stroke="#38bdf8" strokeWidth="1" />
-              <circle cx="7" cy="11" fill="#e0fdff" r="2.5" />
-              <path d="M 1,20 L -3,28 L 1,28 Z" fill="#00f2fe" />
-              <path d="M 13,20 L 17,28 L 13,28 Z" fill="#00f2fe" />
-              <polygon fill="#38bdf8" points="4,28 7,37 10,28" />
-              <polygon fill="#e0fdff" points="5.5,28 7,33 8.5,28" />
-            </g>
-            <defs>
-              <linearGradient id="smokeGradient" x1="0%" x2="0%" y1="0%" y2="100%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-                <stop offset="25%" stopColor="#00f2fe" stopOpacity="0.8" />
-                <stop offset="60%" stopColor="#006977" stopOpacity="0.65" />
-                <stop offset="100%" stopColor="#091326" stopOpacity="0.95" />
-              </linearGradient>
-            </defs>
-          </svg>
+          {/* Right: Telemetry card */}
+          <div className="lg:col-span-4 border border-primary p-space-md bg-surface-container-lowest flex flex-col justify-between h-full space-y-space-md">
+            <div className="space-y-space-sm">
+              <div className="flex justify-between items-center border-b border-outline-variant/40 pb-space-xs font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">
+                <span>{t.ui.telemetryTitle}</span>
+                <span className="text-secondary font-semibold">{t.ui.activeMode}</span>
+              </div>
+              <div className="grid grid-cols-2 gap-y-space-sm gap-x-space-md font-label-mono text-label-mono">
+                <Info label={t.ui.infoDiscipline} value={t.hero.title} />
+                <Info label={t.ui.infoLocation} value={t.ui.locationValue} />
+                <Info label={t.ui.infoEducation} value={t.ui.educationValue} />
+                <Info label={t.ui.infoStatus} value={t.hero.statusOpenToWork} accent />
+              </div>
+              <div className="pt-2 border-t border-outline-variant/20 grid grid-cols-3 text-center gap-1 font-label-mono-sm text-label-mono-sm">
+                <Metric value="10+" label={t.about.infoLabel1} />
+                <Metric value="3+" label={t.about.infoLabel2} />
+                <Metric value="15+" label={t.about.infoLabel3} accent />
+              </div>
+            </div>
+            <div className="pt-space-xs border-t border-outline-variant/40">
+              <a className="inline-flex items-center justify-between w-full font-label-mono text-label-mono text-primary hover:text-secondary uppercase transition-colors" href="#case-studies">
+                <span>{t.hero.cta}</span>
+                <span>{t.ui.flagship}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Filter pills */}
+        <div className="pt-space-md flex flex-wrap items-center justify-between gap-space-sm border-t border-outline-variant/30">
+          <div className="flex items-center gap-1 overflow-x-auto">
+            {filterPills.map((pill) => (
+              <button
+                key={pill.id}
+                onClick={() => setFilter(pill.id)}
+                className={`px-space-md py-1 border border-primary font-label-mono text-label-mono uppercase transition-colors cursor-pointer whitespace-nowrap ${
+                  filter === pill.id
+                    ? "bg-primary text-on-primary"
+                    : "bg-surface text-primary hover:bg-surface-container-high"
+                }`}
+              >
+                {pill.label}
+              </button>
+            ))}
+          </div>
+          <div className="hidden sm:flex items-center gap-space-md font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+            <span>{t.ui.docNote}</span>
+            <span className="inline-block w-px h-3 bg-outline-variant" />
+            <span>arfporto.biz.id</span>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Info({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+  return (
+    <div>
+      <span className="block text-on-surface-variant font-label-mono-sm text-label-mono-sm uppercase">{label}</span>
+      <span className={`font-label-mono text-label-mono font-medium ${accent ? "text-secondary" : "text-primary"}`}>{value}</span>
+    </div>
+  );
+}
+
+function Metric({ value, label, accent = false }: { value: string; label: string; accent?: boolean }) {
+  return (
+    <div className="bg-surface p-1 border border-outline-variant/30">
+      <span className={`font-bold block text-sm ${accent ? "text-secondary" : "text-primary"}`}>{value}</span>
+      <span className="text-on-surface-variant uppercase text-[9px]">{label}</span>
+    </div>
   );
 }
