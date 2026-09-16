@@ -115,7 +115,7 @@ export const translations = {
     },
     ui: {
       student: "Mahasiswa",
-      monograph: "ArfPorto Studio Monograph // 2024-2025",
+      monograph: "ArfPorto Studio Monograph - 2024-2025",
       timezone: "WIB / Malang",
       archiveCat: ["Fintech / Web App", "EdTech / Coding Lab", "Enterprise POS", "AI Utility", "Civic Tech UI", "E-Ticketing", "Community UI/UX", "Public Portal", "Landing Page Finansial", "Corporate IT Web"],
       projectsCase: {
@@ -138,7 +138,7 @@ export const translations = {
         },
         primaryLabels: ["Buka Live App", "Uji Coba Coding Lab", "GitHub", "Live Demo", "Kode Sumber"],
         secondaryLabels: ["Source GitHub", "Repositori Proyek", "Source Code", "Source GitHub", "Source GitHub"],
-        specTitles: ["SPEC 01.1 — DASHBOARD KEUANGAN EL STRATEGIS", "LABORATORIUM LOGIKA: MECHA TACTICAL ARENA", "SPEC 03.1 — MULTI-OUTLET CASHIER TERMINAL", "INTELLIGENCE PIPELINE // GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — E-TICKETING FLOW"],
+        specTitles: ["SPEC 01.1 — DASHBOARD KEUANGAN EL STRATEGIS", "LABORATORIUM LOGIKA: MECHA TACTICAL ARENA", "SPEC 03.1 — MULTI-OUTLET CASHIER TERMINAL", "INTELLIGENCE PIPELINE - GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — E-TICKETING FLOW"],
         modules: ["MODULE: REAL-TIME LEDGER", "PYTHON 3 & JS RUNTIME", "SKU DATABASE & TRANSAKSI CEPAT", "SYNTHESIS LATENCY: 850MS", "BOOKING ENGINE"],
         telemetryValues: {
           c1: ["Next.js 14 App Router + Vercel", "Multi-Budget, Wishlist, Cashflow Graph", "Dark / Light Mode, Rapid Entry", "el-strategis.vercel.app"],
@@ -335,7 +335,7 @@ export const translations = {
     },
     ui: {
       student: "Student",
-      monograph: "ArfPorto Studio Monograph // 2024-2025",
+      monograph: "ArfPorto Studio Monograph - 2024-2025",
       timezone: "WIB / Malang",
       archiveCat: ["Fintech / Web App", "EdTech / Coding Lab", "Enterprise POS", "AI Utility", "Civic Tech UI", "E-Ticketing", "Community UI/UX", "Public Portal", "Financial Landing", "Corporate IT Web"],
       projectsCase: {
@@ -358,7 +358,7 @@ export const translations = {
         },
         primaryLabels: ["Open Live App", "Try Coding Lab", "GitHub", "Live Demo", "Source Code"],
         secondaryLabels: ["Source GitHub", "Project Repository", "Source Code", "Source GitHub", "Source GitHub"],
-        specTitles: ["SPEC 01.1 — EL STRATEGIS FINANCE DASHBOARD", "LOGIC LAB: MECHA TACTICAL ARENA", "SPEC 03.1 — MULTI-OUTLET CASHIER TERMINAL", "INTELLIGENCE PIPELINE // GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — E-TICKETING FLOW"],
+        specTitles: ["SPEC 01.1 — EL STRATEGIS FINANCE DASHBOARD", "LOGIC LAB: MECHA TACTICAL ARENA", "SPEC 03.1 — MULTI-OUTLET CASHIER TERMINAL", "INTELLIGENCE PIPELINE - GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — E-TICKETING FLOW"],
         modules: ["MODULE: REAL-TIME LEDGER", "PYTHON 3 & JS RUNTIME", "SKU DATABASE & FAST TRANSACTIONS", "SYNTHESIS LATENCY: 850MS", "BOOKING ENGINE"],
         telemetryValues: {
           c1: ["Next.js 14 App Router + Vercel", "Multi-Budget, Wishlist, Cashflow Graph", "Dark / Light Mode, Rapid Entry", "el-strategis.vercel.app"],
@@ -555,7 +555,7 @@ export const translations = {
     },
     ui: {
       student: "学生",
-      monograph: "ArfPorto スタジオモノグラフ // 2024-2025",
+      monograph: "ArfPorto スタジオモノグラフ - 2024-2025",
       timezone: "WIB / マラン",
       archiveCat: ["フィンテック / Webアプリ", "EdTech / コーディングラボ", "エンタープライズPOS", "AIユーティリティ", "シビックテックUI", "Eチケッティング", "コミュニティUI/UX", "公共ポータル", "金融ランディング", "企業IT Web"],
       projectsCase: {
@@ -578,7 +578,7 @@ export const translations = {
         },
         primaryLabels: ["ライブアプリを開く", "コーディングラボを試す", "GitHub", "ライブデモ", "ソースコード"],
         secondaryLabels: ["GitHubソース", "プロジェクトリポジトリ", "ソースコード", "GitHubソース", "GitHubソース"],
-        specTitles: ["SPEC 01.1 — EL STRATEGIS財務ダッシュボード", "ロジックラボ: メカ戦術アリーナ", "SPEC 03.1 — 多店舗キャッシャー端末", "インテリジェンスパイプライン // GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — Eチケッティングフロー"],
+        specTitles: ["SPEC 01.1 — EL STRATEGIS財務ダッシュボード", "ロジックラボ: メカ戦術アリーナ", "SPEC 03.1 — 多店舗キャッシャー端末", "インテリジェンスパイプライン - GOOGLE GEMINI 1.5 PRO API", "SPEC 05.1 — Eチケッティングフロー"],
         modules: ["モジュール: リアルタイム台帳", "PYTHON 3 & JS RUNTIME", "SKUデータベース & 高速取引", "SYNTHESIS LATENCY: 850MS", "予約エンジン"],
         telemetryValues: {
           c1: ["Next.js 14 App Router + Vercel", "マルチ予算、ウィッシュリスト、キャッシュフロー", "ダーク/ライトモード、クイック入力", "el-strategis.vercel.app"],

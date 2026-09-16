@@ -85,7 +85,6 @@ export default function Projects() {
       year: "2024",
       telemetry: [
         [tel.foundationModel, tv.c4[0]],
-        [tel.designIntegration, tv.c4[1]],
         [tel.experienceFocus, tv.c4[2]],
       ],
       tags: ["Google Gemini API", "React / Next", "Tailwind CSS", "Leaflet Maps (Ambulans)"],
