@@ -174,7 +174,6 @@ export default function Navbar() {
             className="p-space-md flex items-center justify-between hover:bg-surface-container-high hover:text-on-surface"
           >
             <span>{t.ui.githubProfile}</span>
-            <span>↗</span>
           </a>
         </nav>
       )}

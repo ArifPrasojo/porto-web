@@ -133,12 +133,12 @@ export default function Projects() {
                 <h2 className="font-display-lg-mobile text-display-lg-mobile lg:font-display-lg lg:text-display-lg text-primary tracking-tight">
                   {item.title}
                 </h2>
-                <p className="font-body-md text-body-md text-on-surface">{item.desc}</p>
+                <p className="font-body-md text-body-md text-on-surface text-pretty leading-[1.5]">{item.desc}</p>
                 <div className="pt-space-sm border-t border-outline-variant/30 space-y-2">
                   {item.telemetry.map(([label, value]) => (
-                    <div key={label} className="flex justify-between font-label-mono text-label-mono">
-                      <span className="text-on-surface-variant uppercase">{label}</span>
-                      <span className="text-primary font-semibold text-right">{value}</span>
+                    <div key={label} className="font-label-mono text-label-mono">
+                      <span className="block text-on-surface-variant uppercase">{label}</span>
+                      <span className="block text-primary font-semibold">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -157,7 +157,6 @@ export default function Projects() {
                     target="_blank"
                   >
                     <span>{item.primary.label}</span>
-                    <span>↗</span>
                   </a>
                   <a
                     className="inline-flex items-center gap-1 px-space-sm py-space-xs font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4"

@@ -46,10 +46,9 @@ export default function Archive() {
             </thead>
             <tbody className="divide-y divide-outline-variant/40 font-label-mono text-label-mono text-on-surface">
               {archiveProjects.map((row, idx) => (
-                <tr key={row.id} className="hover:bg-surface-container transition-colors group cursor-pointer">
-                  <td className="p-space-sm font-semibold text-primary group-hover:text-secondary flex items-center gap-1.5">
-                    <span>{row.title}</span>
-                    <span className="text-secondary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <tr key={row.id} className="hover:bg-surface-container transition-colors group">
+                  <td className="p-space-sm font-semibold text-primary">
+                    {row.title}
                   </td>
                   <td className="p-space-sm text-on-surface-variant uppercase text-label-mono-sm">{t.ui.archiveCat[row.catIdx]}</td>
                   <td className="p-space-sm font-mono text-[11px]">{row.stack}</td>

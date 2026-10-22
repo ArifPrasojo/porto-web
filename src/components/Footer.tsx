@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">
-          <div>© {new Date().getFullYear()} Arif Prasojo (ArfPorto) — {t.ui.footerLegal}</div>
+          <div>© {new Date().getFullYear()} Arif Prasojo (ArfPorto) - {t.ui.footerLegal}</div>
           <div><span>{t.ui.locationFull}</span> • <span>{t.about.university} (D4 SIB)</span></div>
         </div>
       </div>

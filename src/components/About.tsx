@@ -15,14 +15,14 @@ export default function About() {
             {t.ui.aboutHeading}
           </h4>
           <div className="border-t border-primary pt-space-xs font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant space-y-1">
-            <div>{t.hero.name} — {t.ui.student} {t.about.major}</div>
+            <div>{t.hero.name} - {t.ui.student} {t.about.major}</div>
             <div>{t.about.university} ({t.about.period}) • IPK: {t.about.ipk}</div>
           </div>
           <div className="pt-space-sm">
             <div className="border border-primary p-space-sm bg-surface-container-lowest">
               <span className="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant block mb-1">{t.ui.aboutStatus}</span>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-green-600"></span>
                 <span className="font-label-mono text-label-mono font-semibold text-primary">{t.ui.aboutOpen}</span>
               </div>
               <p className="font-label-mono-sm text-label-mono-sm text-on-surface-variant mt-2">
